@@ -1,0 +1,29 @@
+# Build artifacts
+*.obj
+*.exe
+*.pch
+*.ilk
+*.pdb
+*.ipch
+*.aps
+*.ncb
+*.sdf
+*.opensdf
+*.log
+*.tlog
+*.VC.db
+*.VC.VC.opendb
+
+# Build folders
+[Bb]uild/
+[Dd]ebug*/
+[Rr]elease*/
+
+# Visual Studio user files
+*.user
+*.suo
+*.VC.db
+
+# CMake files
+CMakeCache.txt
+CMakeFiles/
