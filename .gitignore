@@ -4,6 +4,7 @@
 *.cache
 *.db
 *.exe
+*.hint
 *.ilk
 *.ipch
 *.log
