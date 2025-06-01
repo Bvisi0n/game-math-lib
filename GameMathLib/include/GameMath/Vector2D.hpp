@@ -9,6 +9,21 @@ namespace GameMath {
 
         Vector2D(float x = 0.0f, float y = 0.0f);
 
+        /** @brief Adds two vectors component-wise.
+            @param other: The vector to add.
+            @return A new Vector2D representing the sum. */
+        Vector2D operator+(const Vector2D& other) const;
+
+        /** @brief Scales the vector by a scalar factor.
+            @param scalar: The float value to multiply each component by.
+            @return A new Vector2D representing the scaled vector. */
+		Vector2D operator*(const float scalar) const;
+
+        /** @brief Compares two vectors for exact component equality.
+            @param other: The vector to compare with.
+            @return True if x and y are exactly equal, otherwise false. */
+		bool operator==(const Vector2D& other) const;
+
         /** @brief Calculates the dot product between this vector and another.
             @param other: The vector to compute the dot product with.
             @return The scalar dot product result. */

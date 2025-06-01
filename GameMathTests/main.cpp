@@ -15,7 +15,33 @@
         REQUIRE(v.y == Catch::Approx(4.0f));
     }
     #pragma endregion
-    #pragma region GameMath::Vector2D.Dot()
+    #pragma region .operator+
+    TEST_CASE("Vector2D operator+ adds components") {
+        GameMath::Vector2D a(2.0f, 3.0f);
+        GameMath::Vector2D b(4.0f, 5.0f);
+        GameMath::Vector2D result = a + b;
+        REQUIRE(result.x == Catch::Approx(6.0f));
+        REQUIRE(result.y == Catch::Approx(8.0f));
+    }
+    #pragma endregion
+    #pragma region .operator*
+    TEST_CASE("Vector2D operator* scales both components") {
+        GameMath::Vector2D v(1.5f, -2.0f);
+        GameMath::Vector2D result = v * 2.0f;
+        REQUIRE(result.x == Catch::Approx(3.0f));
+        REQUIRE(result.y == Catch::Approx(-4.0f));
+    }
+    #pragma endregion
+    #pragma region .operator==
+    TEST_CASE("Vector2D operator== compares components with exact match") {
+        GameMath::Vector2D a(1.0f, 2.0f);
+        GameMath::Vector2D b(1.0f, 2.0f);
+        GameMath::Vector2D c(1.0f, 2.0001f);
+        REQUIRE(a == b);
+        REQUIRE_FALSE(a == c);
+    }
+    #pragma endregion
+    #pragma region .Dot()
     TEST_CASE("Vector2D Dot with parallel vector returns positive scalar") {
         GameMath::Vector2D a(1.0f, 2.0f);
         GameMath::Vector2D b(2.0f, 4.0f);
@@ -32,7 +58,7 @@
         REQUIRE(a.Dot(b) == Catch::Approx(-1.0f));
     }
     #pragma endregion
-    #pragma region GameMath::Vector2D.Length()
+    #pragma region .Length()
     TEST_CASE("Vector2D Length is correct for Pythagorean triple") {
         GameMath::Vector2D v(3.0f, 4.0f);
         REQUIRE(v.Length() == Catch::Approx(5.0f));
@@ -42,7 +68,7 @@
         REQUIRE(v.Length() == Catch::Approx(0.0f));
     }
     #pragma endregion
-    #pragma region GameMath::Vector2D.Normalized()
+    #pragma region .Normalized()
     TEST_CASE("Vector2D Normalized returns unit vector") {
         GameMath::Vector2D v(3.0f, 4.0f);
         GameMath::Vector2D n = v.Normalized();
