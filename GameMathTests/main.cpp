@@ -103,6 +103,21 @@
         REQUIRE(n.y == Catch::Approx(0.0f));
     }
     #pragma endregion
+    #pragma region .IsNearlyZero()
+    TEST_CASE("Vector2D IsNearlyZero returns true for very short vector") {
+        GameMath::Vector2D v(0.00001f, 0.00001f);
+        REQUIRE(v.IsNearlyZero(0.0001f));
+    }
+    TEST_CASE("Vector2D IsNearlyZero returns false for vector above threshold") {
+        GameMath::Vector2D v(0.09f, 0.09f);
+        REQUIRE_FALSE(v.IsNearlyZero(0.1f)); // Length = ~0.127
+    }
+    TEST_CASE("Vector2D IsNearlyZero matches IsZero for exact zero vector") {
+        GameMath::Vector2D v(0.0f, 0.0f);
+        REQUIRE(v.IsNearlyZero(0.00001f));
+        REQUIRE(v.IsZero()); // confirms consistency
+    }
+    #pragma endregion
     #pragma region .IsZero()
     TEST_CASE("Vector2D IsZero returns true for (0,0)") {
         GameMath::Vector2D v(0.0f, 0.0f);
@@ -111,6 +126,19 @@
     TEST_CASE("Vector2D IsZero returns false for non-zero components") {
         GameMath::Vector2D v(0.0f, 0.1f);
         REQUIRE_FALSE(v.IsZero());
+    }
+    TEST_CASE("Vector2D IsZero(tolerance) returns true for near-zero vector") {
+        GameMath::Vector2D v(0.00001f, -0.00001f);
+        REQUIRE(v.IsZero(0.0001f));
+    }
+    TEST_CASE("Vector2D IsZero(tolerance) returns false for above-threshold values") {
+        GameMath::Vector2D v(0.01f, 0.0f);
+        REQUIRE_FALSE(v.IsZero(0.0001f));
+    }
+    TEST_CASE("Vector2D IsZero(tolerance) matches strict IsZero when threshold is 0") {
+        GameMath::Vector2D v(0.0f, 0.0f);
+        REQUIRE(v.IsZero(0.0f));
+        REQUIRE(v.IsZero()); // confirms exact version still works
     }
     #pragma endregion
 #pragma endregion

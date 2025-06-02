@@ -2,7 +2,6 @@
 #include <cmath>
 
 namespace GameMath {
-
     Vector2D::Vector2D(float x, float y)
         : x(x), y(y)
     {}
@@ -50,8 +49,14 @@ namespace GameMath {
 		}
 		return Vector2D(x / length, y / length);
     }
-    bool Vector2D::IsZero() const
+
+    bool Vector2D::IsNearlyZero(float tolerance) const
     {
-		return (x == 0.0f && y == 0.0f);
+        return LengthSquared() < tolerance * tolerance;
     }
+
+    bool Vector2D::IsZero(float tolerance) const
+    {
+        return (std::abs(x) <= tolerance && std::abs(y) <= tolerance);
+	}
 }

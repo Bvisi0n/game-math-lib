@@ -46,8 +46,14 @@ namespace GameMath {
             @return A new Vector2D with unit length, or (0, 0) if the vector is zero. */
         Vector2D Normalized() const;
 
-        /** @brief Checks whether both components of the vector are exactly zero.
-			@return True if both x and y are exactly zero. */
-		bool IsZero() const;
+        /** @brief Checks if the vector's total magnitude is within tolerance of zero.
+            @param tolerance: The maximum allowed length.
+            @return True if LengthSquared() is below tolerance squared. */
+        bool IsNearlyZero(float tolerance) const;
+
+        /** @brief Checks if both components are within tolerance of zero.
+            @param tolerance: The per-component threshold.
+			@return True if abs(x) and abs(y) are below tolerance. */
+		bool IsZero(float tolerance = 0.0f) const;
     };
-}
+} 
