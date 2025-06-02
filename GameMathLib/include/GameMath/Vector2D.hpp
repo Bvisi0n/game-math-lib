@@ -24,6 +24,11 @@ namespace GameMath {
             @return True if x and y are exactly equal, otherwise false. */
 		bool operator==(const Vector2D& other) const;
 
+        /** @brief Checks whether two vectors are not equal.
+            @param other: The vector to compare against.
+            @return True if at least one component is different. */
+		bool operator!=(const Vector2D& other) const;
+
         /** @brief Calculates the dot product between this vector and another.
             @param other: The vector to compute the dot product with.
             @return The scalar dot product result. */
@@ -33,8 +38,16 @@ namespace GameMath {
             @return The length of the vector as a float. */
 		float Length() const;
 
+        /** @brief Calculates the squared length of the vector.
+            @return The squared length of the vector (x² + y²). */
+		float LengthSquared() const;
+
         /** @brief Returns a normalized (unit length) copy of this vector.
             @return A new Vector2D with unit length, or (0, 0) if the vector is zero. */
         Vector2D Normalized() const;
+
+        /** @brief Checks whether both components of the vector are exactly zero.
+			@return True if both x and y are exactly zero. */
+		bool IsZero() const;
     };
 }

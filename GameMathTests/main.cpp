@@ -15,7 +15,7 @@
         REQUIRE(v.y == Catch::Approx(4.0f));
     }
     #pragma endregion
-    #pragma region .operator+
+    #pragma region operator+
     TEST_CASE("Vector2D operator+ adds components") {
         GameMath::Vector2D a(2.0f, 3.0f);
         GameMath::Vector2D b(4.0f, 5.0f);
@@ -24,7 +24,7 @@
         REQUIRE(result.y == Catch::Approx(8.0f));
     }
     #pragma endregion
-    #pragma region .operator*
+    #pragma region operator*
     TEST_CASE("Vector2D operator* scales both components") {
         GameMath::Vector2D v(1.5f, -2.0f);
         GameMath::Vector2D result = v * 2.0f;
@@ -32,13 +32,25 @@
         REQUIRE(result.y == Catch::Approx(-4.0f));
     }
     #pragma endregion
-    #pragma region .operator==
+    #pragma region operator==
     TEST_CASE("Vector2D operator== compares components with exact match") {
         GameMath::Vector2D a(1.0f, 2.0f);
         GameMath::Vector2D b(1.0f, 2.0f);
         GameMath::Vector2D c(1.0f, 2.0001f);
         REQUIRE(a == b);
         REQUIRE_FALSE(a == c);
+    }
+    #pragma endregion
+    #pragma region .operator!=
+    TEST_CASE("Vector2D operator!= returns true for different components") {
+        GameMath::Vector2D a(1.0f, 2.0f);
+        GameMath::Vector2D b(1.0f, 3.0f);
+        REQUIRE(a != b);
+    }
+    TEST_CASE("Vector2D operator!= returns false for equal components") {
+        GameMath::Vector2D a(1.0f, 2.0f);
+        GameMath::Vector2D b(1.0f, 2.0f);
+        REQUIRE_FALSE(a != b);
     }
     #pragma endregion
     #pragma region .Dot()
@@ -68,6 +80,16 @@
         REQUIRE(v.Length() == Catch::Approx(0.0f));
     }
     #pragma endregion
+    #pragma region .LengthSquared()
+    TEST_CASE("Vector2D LengthSquared is correct for known input") {
+        GameMath::Vector2D v(3.0f, 4.0f);
+        REQUIRE(v.LengthSquared() == Catch::Approx(25.0f));
+    }
+    TEST_CASE("Vector2D LengthSquared is zero for zero vector") {
+        GameMath::Vector2D v(0.0f, 0.0f);
+        REQUIRE(v.LengthSquared() == Catch::Approx(0.0f));
+    }
+    #pragma endregion
     #pragma region .Normalized()
     TEST_CASE("Vector2D Normalized returns unit vector") {
         GameMath::Vector2D v(3.0f, 4.0f);
@@ -79,6 +101,16 @@
         GameMath::Vector2D n = v.Normalized();
         REQUIRE(n.x == Catch::Approx(0.0f));
         REQUIRE(n.y == Catch::Approx(0.0f));
+    }
+    #pragma endregion
+    #pragma region .IsZero()
+    TEST_CASE("Vector2D IsZero returns true for (0,0)") {
+        GameMath::Vector2D v(0.0f, 0.0f);
+        REQUIRE(v.IsZero());
+    }
+    TEST_CASE("Vector2D IsZero returns false for non-zero components") {
+        GameMath::Vector2D v(0.0f, 0.1f);
+        REQUIRE_FALSE(v.IsZero());
     }
     #pragma endregion
 #pragma endregion

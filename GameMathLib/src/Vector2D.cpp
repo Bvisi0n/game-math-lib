@@ -22,6 +22,11 @@ namespace GameMath {
 		return (x == other.x && y == other.y);
     }
 
+    bool Vector2D::operator!=(const Vector2D& other) const
+    {
+        return (x != other.x || y != other.y);
+    }
+
     float Vector2D::Dot(const Vector2D& other) const
     {
 		return (x * other.x) + (y * other.y);
@@ -29,7 +34,12 @@ namespace GameMath {
 
     float Vector2D::Length() const
     {
-        return std::sqrt((x*x)+(y*y));
+        return std::sqrt(LengthSquared());
+    }
+
+    float Vector2D::LengthSquared() const
+    {
+		return (x * x) + (y * y);
     }
 
     Vector2D Vector2D::Normalized() const
@@ -39,5 +49,9 @@ namespace GameMath {
             return Vector2D(0.0f, 0.0f);
 		}
 		return Vector2D(x / length, y / length);
+    }
+    bool Vector2D::IsZero() const
+    {
+		return (x == 0.0f && y == 0.0f);
     }
 }
