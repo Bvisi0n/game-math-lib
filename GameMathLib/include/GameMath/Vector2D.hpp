@@ -57,6 +57,11 @@ namespace GameMath {
             @return A new Vector2D with unit length, or (0, 0) if the vector is zero. */
         Vector2D Normalized() const;
 
+        /** @brief Returns a vector that is perpendicular to this vector.
+            The result is a 90° counter-clockwise rotation of the original vector.
+			@return A new Vector2D perpendicular to this one. */
+        Vector2D Perpendicular() const;
+
         /** @brief Checks if the vector's total magnitude is within tolerance of zero.
             @param tolerance: The maximum allowed length.
             @return True if LengthSquared() is below tolerance squared. */

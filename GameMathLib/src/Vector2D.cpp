@@ -60,6 +60,11 @@ namespace GameMath {
 		return Vector2D(x / length, y / length);
     }
 
+    Vector2D Vector2D::Perpendicular() const
+    {
+		return Vector2D(-y, x);
+    }
+
     bool Vector2D::IsNearlyZero(float tolerance) const
     {
         return LengthSquared() < tolerance * tolerance;

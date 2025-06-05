@@ -126,6 +126,14 @@
         REQUIRE(n.y == Catch::Approx(0.0f));
     }
     #pragma endregion
+    #pragma region .Perpendicular()
+    TEST_CASE("Vector2D Perpendicular returns rotated vector 90 degrees counter-clockwise") {
+        GameMath::Vector2D v(1.0f, 0.0f);
+        GameMath::Vector2D perp = v.Perpendicular();
+        REQUIRE(perp.x == Catch::Approx(0.0f));
+        REQUIRE(perp.y == Catch::Approx(1.0f));
+    }
+    #pragma endregion
     #pragma region .IsNearlyZero()
     TEST_CASE("Vector2D IsNearlyZero returns true for very short vector") {
         GameMath::Vector2D v(0.00001f, 0.00001f);
