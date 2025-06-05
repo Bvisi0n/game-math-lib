@@ -14,6 +14,11 @@ namespace GameMath {
             @return A new Vector2D representing the sum. */
         Vector2D operator+(const Vector2D& other) const;
 
+        /** @brief Subtracts another vector from this one component-wise.
+            @param other: The vector to subtract.
+			@return A new Vector2D representing the difference. */
+        Vector2D operator-(const Vector2D& other) const;
+
         /** @brief Scales the vector by a scalar factor.
             @param scalar: The float value to multiply each component by.
             @return A new Vector2D representing the scaled vector. */

@@ -24,6 +24,15 @@
         REQUIRE(result.y == Catch::Approx(8.0f));
     }
     #pragma endregion
+    #pragma region GameMath::Vector2D.operator-
+    TEST_CASE("Vector2D operator- subtracts components") {
+        GameMath::Vector2D a(5.0f, 3.0f);
+        GameMath::Vector2D b(2.0f, 1.0f);
+        GameMath::Vector2D result = a - b;
+        REQUIRE(result.x == Catch::Approx(3.0f));
+        REQUIRE(result.y == Catch::Approx(2.0f));
+    }
+    #pragma endregion
     #pragma region operator*
     TEST_CASE("Vector2D operator* scales both components") {
         GameMath::Vector2D v(1.5f, -2.0f);
