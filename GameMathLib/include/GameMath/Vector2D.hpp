@@ -24,6 +24,12 @@ namespace GameMath {
             @return A new Vector2D representing the scaled vector. */
 		Vector2D operator*(const float scalar) const;
 
+        /** @brief Divides both vector components by a scalar value.
+            If the scalar is zero, the result is defined as (0, 0) to avoid division by zero.
+            @param scalar: The value to divide each component by.
+			@return A new Vector2D representing the scaled-down vector. */
+		Vector2D operator/(const float scalar) const;
+
         /** @brief Compares two vectors for exact component equality.
             @param other: The vector to compare with.
             @return True if x and y are exactly equal, otherwise false. */

@@ -24,7 +24,7 @@
         REQUIRE(result.y == Catch::Approx(8.0f));
     }
     #pragma endregion
-    #pragma region GameMath::Vector2D.operator-
+    #pragma region operator-
     TEST_CASE("Vector2D operator- subtracts components") {
         GameMath::Vector2D a(5.0f, 3.0f);
         GameMath::Vector2D b(2.0f, 1.0f);
@@ -39,6 +39,20 @@
         GameMath::Vector2D result = v * 2.0f;
         REQUIRE(result.x == Catch::Approx(3.0f));
         REQUIRE(result.y == Catch::Approx(-4.0f));
+    }
+    #pragma endregion
+    #pragma region operator/
+    TEST_CASE("Vector2D operator/ divides both components by scalar") {
+        GameMath::Vector2D v(8.0f, 4.0f);
+        GameMath::Vector2D result = v / 2.0f;
+        REQUIRE(result.x == Catch::Approx(4.0f));
+        REQUIRE(result.y == Catch::Approx(2.0f));
+    }
+    TEST_CASE("Vector2D operator/ with zero scalar returns zero vector") {
+        GameMath::Vector2D v(5.0f, -3.0f);
+        GameMath::Vector2D result = v / 0.0f;
+        REQUIRE(result.x == Catch::Approx(0.0f));
+        REQUIRE(result.y == Catch::Approx(0.0f));
     }
     #pragma endregion
     #pragma region operator==

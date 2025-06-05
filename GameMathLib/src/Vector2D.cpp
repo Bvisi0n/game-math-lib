@@ -21,6 +21,11 @@ namespace GameMath {
 		return Vector2D(x * scalar, y * scalar);
     }
 
+    Vector2D Vector2D::operator/(const float scalar) const
+    {
+		return (scalar != 0.0f) ? Vector2D(x / scalar, y / scalar) : Vector2D(0.0f, 0.0f);
+    }
+
     bool Vector2D::operator==(const Vector2D& other) const
     {
 		return (x == other.x && y == other.y);
