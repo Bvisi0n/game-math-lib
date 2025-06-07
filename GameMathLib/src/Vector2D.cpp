@@ -41,6 +41,11 @@ namespace GameMath {
 		return (x * other.x) + (y * other.y);
     }
 
+    bool Vector2D::Equals(const Vector2D& other, float tolerance) const
+    {
+		return (std::abs(x - other.x) <= tolerance && std::abs(y - other.y) <= tolerance);
+    }
+
     float Vector2D::Length() const
     {
         return std::sqrt(LengthSquared());

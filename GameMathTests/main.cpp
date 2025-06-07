@@ -93,6 +93,28 @@
         REQUIRE(a.Dot(b) == Catch::Approx(-1.0f));
     }
     #pragma endregion
+    #pragma region .Equals()
+    TEST_CASE("Vector2D Equals returns true for exactly equal vectors") {
+        GameMath::Vector2D a(1.0f, 2.0f);
+        GameMath::Vector2D b(1.0f, 2.0f);
+        REQUIRE(a.Equals(b));
+    }
+    TEST_CASE("Vector2D Equals returns true within default tolerance") {
+        GameMath::Vector2D a(1.0f, 2.0f);
+        GameMath::Vector2D b(1.00001f, 2.00001f);
+        REQUIRE(a.Equals(b)); // using default 0.0001f
+    }
+    TEST_CASE("Vector2D Equals returns false outside of tolerance") {
+        GameMath::Vector2D a(1.0f, 2.0f);
+        GameMath::Vector2D b(1.01f, 2.01f);
+        REQUIRE_FALSE(a.Equals(b));
+    }
+    TEST_CASE("Vector2D Equals works with custom tolerance") {
+        GameMath::Vector2D a(1.0f, 2.0f);
+        GameMath::Vector2D b(1.01f, 2.01f);
+        REQUIRE(a.Equals(b, 0.02f));
+    }
+    #pragma endregion
     #pragma region .Length()
     TEST_CASE("Vector2D Length is correct for Pythagorean triple") {
         GameMath::Vector2D v(3.0f, 4.0f);

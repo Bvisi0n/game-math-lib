@@ -30,20 +30,26 @@ namespace GameMath {
 			@return A new Vector2D representing the scaled-down vector. */
 		Vector2D operator/(const float scalar) const;
 
-        /** @brief Compares two vectors for exact component equality.
+        /** @brief Checks for exact (bitwise) equality.
             @param other: The vector to compare with.
-            @return True if x and y are exactly equal, otherwise false. */
+            @return True if x and y are exactly equal. Use Equals() for tolerance. */
 		bool operator==(const Vector2D& other) const;
 
-        /** @brief Checks whether two vectors are not equal.
-            @param other: The vector to compare against.
-            @return True if at least one component is different. */
+        /** @brief Checks for exact (bitwise) inequality.
+            @param other: The vector to compare with.
+            @return True if x or y differ exactly. Use Equals() for tolerance. */
 		bool operator!=(const Vector2D& other) const;
 
         /** @brief Calculates the dot product between this vector and another.
             @param other: The vector to compute the dot product with.
             @return The scalar dot product result. */
         float Dot(const Vector2D& other) const;
+
+        /** @brief Compares two vectors using a tolerance value.
+            @param other: The vector to compare against.
+            @param tolerance: Allowed difference between components (default 0.0001f).
+            @return True if the components are equal within the given tolerance. */
+        bool Equals(const Vector2D& other, float tolerance = 0.0001f) const;
 
         /** @brief Calculates the Euclidean length (magnitude) of the vector.
             @return The length of the vector as a float. */
