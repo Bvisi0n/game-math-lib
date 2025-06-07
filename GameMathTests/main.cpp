@@ -4,135 +4,155 @@
 
 #pragma region GameMath::Vector2D
     #pragma region Constructor
-    TEST_CASE("Vector2D default constructor sets x and y to 0") {
+    TEST_CASE("Vector2D::Vector2D - default values") {
         GameMath::Vector2D v;
-        REQUIRE(v.x == Catch::Approx(0.0f));
-        REQUIRE(v.y == Catch::Approx(0.0f));
+        CHECK(v.x == Catch::Approx(0.0f));
+        CHECK(v.y == Catch::Approx(0.0f));
     }
-    TEST_CASE("Vector2D parameterized constructor sets x and y correctly") {
+    TEST_CASE("Vector2D::Vector2D - parameterized values") {
         GameMath::Vector2D v(3.0f, 4.0f);
-        REQUIRE(v.x == Catch::Approx(3.0f));
-        REQUIRE(v.y == Catch::Approx(4.0f));
+        CHECK(v.x == Catch::Approx(3.0f));
+        CHECK(v.y == Catch::Approx(4.0f));
     }
     #pragma endregion
     #pragma region operator+
-    TEST_CASE("Vector2D operator+ adds components") {
+    TEST_CASE("Vector2D::operator+ - adds components") {
         GameMath::Vector2D a(2.0f, 3.0f);
         GameMath::Vector2D b(4.0f, 5.0f);
         GameMath::Vector2D result = a + b;
-        REQUIRE(result.x == Catch::Approx(6.0f));
-        REQUIRE(result.y == Catch::Approx(8.0f));
+        CHECK(result.x == Catch::Approx(6.0f));
+        CHECK(result.y == Catch::Approx(8.0f));
     }
     #pragma endregion
     #pragma region operator-
-    TEST_CASE("Vector2D operator- subtracts components") {
+    TEST_CASE("Vector2D::operator- - subtracts components") {
         GameMath::Vector2D a(5.0f, 3.0f);
         GameMath::Vector2D b(2.0f, 1.0f);
         GameMath::Vector2D result = a - b;
-        REQUIRE(result.x == Catch::Approx(3.0f));
-        REQUIRE(result.y == Catch::Approx(2.0f));
+        CHECK(result.x == Catch::Approx(3.0f));
+        CHECK(result.y == Catch::Approx(2.0f));
     }
     #pragma endregion
     #pragma region operator*
-    TEST_CASE("Vector2D operator* scales both components") {
+    TEST_CASE("Vector2D::operator* - scales components") {
         GameMath::Vector2D v(1.5f, -2.0f);
         GameMath::Vector2D result = v * 2.0f;
-        REQUIRE(result.x == Catch::Approx(3.0f));
-        REQUIRE(result.y == Catch::Approx(-4.0f));
+        CHECK(result.x == Catch::Approx(3.0f));
+        CHECK(result.y == Catch::Approx(-4.0f));
     }
     #pragma endregion
     #pragma region operator/
-    TEST_CASE("Vector2D operator/ divides both components by scalar") {
+    TEST_CASE("Vector2D::operator/ - divides by scalar") {
         GameMath::Vector2D v(8.0f, 4.0f);
         GameMath::Vector2D result = v / 2.0f;
-        REQUIRE(result.x == Catch::Approx(4.0f));
-        REQUIRE(result.y == Catch::Approx(2.0f));
+        CHECK(result.x == Catch::Approx(4.0f));
+        CHECK(result.y == Catch::Approx(2.0f));
     }
-    TEST_CASE("Vector2D operator/ with zero scalar returns zero vector") {
+    TEST_CASE("Vector2D::operator/ - zero scalar returns zero vector") {
         GameMath::Vector2D v(5.0f, -3.0f);
         GameMath::Vector2D result = v / 0.0f;
-        REQUIRE(result.x == Catch::Approx(0.0f));
-        REQUIRE(result.y == Catch::Approx(0.0f));
+        CHECK(result.x == Catch::Approx(0.0f));
+        CHECK(result.y == Catch::Approx(0.0f));
+    }
+    TEST_CASE("Vector2D::operator/ - divide by negative scalar") {
+        GameMath::Vector2D v(4.0f, -8.0f);
+        GameMath::Vector2D result = v / -2.0f;
+        CHECK(result.x == Catch::Approx(-2.0f));
+        CHECK(result.y == Catch::Approx(4.0f));
     }
     #pragma endregion
     #pragma region operator==
-    TEST_CASE("Vector2D operator== compares components with exact match") {
+    TEST_CASE("Vector2D::operator== - exact match") {
         GameMath::Vector2D a(1.0f, 2.0f);
         GameMath::Vector2D b(1.0f, 2.0f);
+        CHECK(a == b);
+    }
+    TEST_CASE("Vector2D::operator== - different component") {
+        GameMath::Vector2D a(1.0f, 2.0f);
         GameMath::Vector2D c(1.0f, 2.0001f);
-        REQUIRE(a == b);
-        REQUIRE_FALSE(a == c);
+        CHECK_FALSE(a == c);
     }
     #pragma endregion
-    #pragma region .operator!=
-    TEST_CASE("Vector2D operator!= returns true for different components") {
+    #pragma region operator!=
+    TEST_CASE("Vector2D::operator!= - different components") {
         GameMath::Vector2D a(1.0f, 2.0f);
         GameMath::Vector2D b(1.0f, 3.0f);
-        REQUIRE(a != b);
+        CHECK(a != b);
     }
-    TEST_CASE("Vector2D operator!= returns false for equal components") {
+    TEST_CASE("Vector2D::operator!= - equal components") {
         GameMath::Vector2D a(1.0f, 2.0f);
         GameMath::Vector2D b(1.0f, 2.0f);
-        REQUIRE_FALSE(a != b);
+        CHECK_FALSE(a != b);
     }
     #pragma endregion
-    #pragma region .Dot()
-    TEST_CASE("Vector2D Dot with parallel vector returns positive scalar") {
+    #pragma region Dot
+    TEST_CASE("Vector2D::Dot - parallel vector") {
         GameMath::Vector2D a(1.0f, 2.0f);
         GameMath::Vector2D b(2.0f, 4.0f);
-        REQUIRE(a.Dot(b) == Catch::Approx(10.0f));
+        CHECK(a.Dot(b) == Catch::Approx(10.0f));
     }
-    TEST_CASE("Vector2D Dot with perpendicular vector returns zero") {
+    TEST_CASE("Vector2D::Dot - perpendicular vector") {
         GameMath::Vector2D a(1.0f, 0.0f);
         GameMath::Vector2D b(0.0f, 1.0f);
-        REQUIRE(a.Dot(b) == Catch::Approx(0.0f));
+        CHECK(a.Dot(b) == Catch::Approx(0.0f));
     }
-    TEST_CASE("Vector2D Dot with opposite vector returns negative scalar") {
+    TEST_CASE("Vector2D::Dot - opposite vector") {
         GameMath::Vector2D a(1.0f, 0.0f);
         GameMath::Vector2D b(-1.0f, 0.0f);
-        REQUIRE(a.Dot(b) == Catch::Approx(-1.0f));
+        CHECK(a.Dot(b) == Catch::Approx(-1.0f));
+    }
+    TEST_CASE("Vector2D::Dot - nearly orthogonal vectors") {
+        GameMath::Vector2D a(1.0f, 0.0f);
+        GameMath::Vector2D b(1e-7f, 1.0f);
+        CHECK(a.Dot(b) == Catch::Approx(1e-7f).epsilon(0.01f));
     }
     #pragma endregion
-    #pragma region .Equals()
-    TEST_CASE("Vector2D Equals returns true for exactly equal vectors") {
+    #pragma region Equals
+    TEST_CASE("Vector2D::Equals - exactly equal vectors") {
         GameMath::Vector2D a(1.0f, 2.0f);
         GameMath::Vector2D b(1.0f, 2.0f);
-        REQUIRE(a.Equals(b));
+        CHECK(a.Equals(b));
     }
-    TEST_CASE("Vector2D Equals returns true within default tolerance") {
+    TEST_CASE("Vector2D::Equals - within default tolerance") {
         GameMath::Vector2D a(1.0f, 2.0f);
         GameMath::Vector2D b(1.00001f, 2.00001f);
-        REQUIRE(a.Equals(b)); // using default 0.0001f
+        CHECK(a.Equals(b));
     }
-    TEST_CASE("Vector2D Equals returns false outside of tolerance") {
+    TEST_CASE("Vector2D::Equals - outside tolerance") {
         GameMath::Vector2D a(1.0f, 2.0f);
         GameMath::Vector2D b(1.01f, 2.01f);
-        REQUIRE_FALSE(a.Equals(b));
+        CHECK_FALSE(a.Equals(b));
     }
-    TEST_CASE("Vector2D Equals works with custom tolerance") {
+    TEST_CASE("Vector2D::Equals - custom tolerance") {
         GameMath::Vector2D a(1.0f, 2.0f);
         GameMath::Vector2D b(1.01f, 2.01f);
-        REQUIRE(a.Equals(b, 0.02f));
+        CHECK(a.Equals(b, 0.02f));
+    }
+    TEST_CASE("Vector2D::Equals - comparison with NaN components") {
+        GameMath::Vector2D a(std::numeric_limits<float>::quiet_NaN(), 1.0f);
+        GameMath::Vector2D b(0.0f, std::numeric_limits<float>::quiet_NaN());
+        CHECK_FALSE(a.Equals(b));
+        CHECK_FALSE(a.Equals(a));
     }
     #pragma endregion
-    #pragma region .Length()
-    TEST_CASE("Vector2D Length is correct for Pythagorean triple") {
+    #pragma region Length
+    TEST_CASE("Vector2D::Length - Pythagorean triple") {
         GameMath::Vector2D v(3.0f, 4.0f);
-        REQUIRE(v.Length() == Catch::Approx(5.0f));
+        CHECK(v.Length() == Catch::Approx(5.0f));
     }
-    TEST_CASE("Vector2D Length is zero for zero vector") {
+    TEST_CASE("Vector2D::Length - zero vector") {
         GameMath::Vector2D v(0.0f, 0.0f);
-        REQUIRE(v.Length() == Catch::Approx(0.0f));
+        CHECK(v.Length() == Catch::Approx(0.0f));
     }
     #pragma endregion
-    #pragma region .LengthSquared()
-    TEST_CASE("Vector2D LengthSquared is correct for known input") {
+    #pragma region LengthSquared
+    TEST_CASE("Vector2D::LengthSquared - known input") {
         GameMath::Vector2D v(3.0f, 4.0f);
-        REQUIRE(v.LengthSquared() == Catch::Approx(25.0f));
+        CHECK(v.LengthSquared() == Catch::Approx(25.0f));
     }
-    TEST_CASE("Vector2D LengthSquared is zero for zero vector") {
+    TEST_CASE("Vector2D::LengthSquared - zero vector") {
         GameMath::Vector2D v(0.0f, 0.0f);
-        REQUIRE(v.LengthSquared() == Catch::Approx(0.0f));
+        CHECK(v.LengthSquared() == Catch::Approx(0.0f));
     }
     #pragma endregion
     #pragma region Normalize
@@ -156,64 +176,81 @@
         v.Normalize();
         CHECK(v.Equals(GameMath::Vector2D{ -1.0f, 0.0f }));
     }
+    TEST_CASE("Vector2D::Normalize - very small vector") {
+        GameMath::Vector2D v(1e-8f, -1e-8f);
+        v.Normalize();
+        float length = v.Length();
+        CHECK(length == Catch::Approx(1.0f).epsilon(0.001f)); // Allow slight epsilon
+    }
     #pragma endregion
-    #pragma region .Normalized()
-    TEST_CASE("Vector2D Normalized returns unit vector") {
+    #pragma region Normalized
+    TEST_CASE("Vector2D::Normalized - unit vector") {
         GameMath::Vector2D v(3.0f, 4.0f);
         GameMath::Vector2D n = v.Normalized();
-        REQUIRE(n.Length() == Catch::Approx(1.0f).epsilon(0.0001f));
+        CHECK(n.Length() == Catch::Approx(1.0f).epsilon(0.0001f));
     }
-    TEST_CASE("Vector2D Normalized of zero vector returns zero vector") {
+    TEST_CASE("Vector2D::Normalized - zero vector") {
         GameMath::Vector2D v(0.0f, 0.0f);
         GameMath::Vector2D n = v.Normalized();
-        REQUIRE(n.x == Catch::Approx(0.0f));
-        REQUIRE(n.y == Catch::Approx(0.0f));
+        CHECK(n.x == Catch::Approx(0.0f));
+        CHECK(n.y == Catch::Approx(0.0f));
     }
     #pragma endregion
-    #pragma region .Perpendicular()
-    TEST_CASE("Vector2D Perpendicular returns rotated vector 90 degrees counter-clockwise") {
+    #pragma region Perpendicular
+    TEST_CASE("Vector2D::Perpendicular - rotates 90 degrees") {
         GameMath::Vector2D v(1.0f, 0.0f);
         GameMath::Vector2D perp = v.Perpendicular();
-        REQUIRE(perp.x == Catch::Approx(0.0f));
-        REQUIRE(perp.y == Catch::Approx(1.0f));
+        CHECK(perp.x == Catch::Approx(0.0f));
+        CHECK(perp.y == Catch::Approx(1.0f));
+    }
+    TEST_CASE("Vector2D::Perpendicular - zero vector") {
+        GameMath::Vector2D v(0.0f, 0.0f);
+        GameMath::Vector2D perp = v.Perpendicular();
+        CHECK(perp.x == Catch::Approx(0.0f));
+        CHECK(perp.y == Catch::Approx(0.0f));
     }
     #pragma endregion
-    #pragma region .IsNearlyZero()
-    TEST_CASE("Vector2D IsNearlyZero returns true for very short vector") {
+    #pragma region IsNearlyZero
+    TEST_CASE("Vector2D::IsNearlyZero - very short vector") {
         GameMath::Vector2D v(0.00001f, 0.00001f);
-        REQUIRE(v.IsNearlyZero(0.0001f));
+        CHECK(v.IsNearlyZero(0.0001f));
     }
-    TEST_CASE("Vector2D IsNearlyZero returns false for vector above threshold") {
+    TEST_CASE("Vector2D::IsNearlyZero - above threshold") {
         GameMath::Vector2D v(0.09f, 0.09f);
-        REQUIRE_FALSE(v.IsNearlyZero(0.1f)); // Length = ~0.127
+        CHECK_FALSE(v.IsNearlyZero(0.1f));
     }
-    TEST_CASE("Vector2D IsNearlyZero matches IsZero for exact zero vector") {
+    TEST_CASE("Vector2D::IsNearlyZero - exact zero vector") {
         GameMath::Vector2D v(0.0f, 0.0f);
-        REQUIRE(v.IsNearlyZero(0.00001f));
-        REQUIRE(v.IsZero()); // confirms consistency
+        CHECK(v.IsNearlyZero(0.00001f));
+        CHECK(v.IsZero());
     }
     #pragma endregion
-    #pragma region .IsZero()
-    TEST_CASE("Vector2D IsZero returns true for (0,0)") {
+    #pragma region IsZero
+    TEST_CASE("Vector2D::IsZero - exact zero") {
         GameMath::Vector2D v(0.0f, 0.0f);
-        REQUIRE(v.IsZero());
+        CHECK(v.IsZero());
     }
-    TEST_CASE("Vector2D IsZero returns false for non-zero components") {
+    TEST_CASE("Vector2D::IsZero - non-zero components") {
         GameMath::Vector2D v(0.0f, 0.1f);
-        REQUIRE_FALSE(v.IsZero());
+        CHECK_FALSE(v.IsZero());
     }
-    TEST_CASE("Vector2D IsZero(tolerance) returns true for near-zero vector") {
+    TEST_CASE("Vector2D::IsZero - near zero vector") {
         GameMath::Vector2D v(0.00001f, -0.00001f);
-        REQUIRE(v.IsZero(0.0001f));
+        CHECK(v.IsZero(0.0001f));
     }
-    TEST_CASE("Vector2D IsZero(tolerance) returns false for above-threshold values") {
+    TEST_CASE("Vector2D::IsZero - above threshold") {
         GameMath::Vector2D v(0.01f, 0.0f);
-        REQUIRE_FALSE(v.IsZero(0.0001f));
+        CHECK_FALSE(v.IsZero(0.0001f));
     }
-    TEST_CASE("Vector2D IsZero(tolerance) matches strict IsZero when threshold is 0") {
+    TEST_CASE("Vector2D::IsZero - matches strict when tolerance is 0") {
         GameMath::Vector2D v(0.0f, 0.0f);
-        REQUIRE(v.IsZero(0.0f));
-        REQUIRE(v.IsZero()); // confirms exact version still works
+        CHECK(v.IsZero(0.0f));
+        CHECK(v.IsZero());
+    }
+    TEST_CASE("Vector2D::IsZero - tolerance boundary") {
+        GameMath::Vector2D v(0.1f, 0.0f);
+        CHECK_FALSE(v.IsZero(0.1f)); // Exactly on boundary should be false
+        CHECK(v.IsZero(0.1001f));    // Just above boundary should be true
     }
     #pragma endregion
 #pragma endregion
