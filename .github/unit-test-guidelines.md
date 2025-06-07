@@ -1,15 +1,15 @@
-# GameMathLib — Unit Test Style Guide
+# GameMathLib — Unit Test Guidelines
 
-Deze richtlijnen definiëren hoe unit tests worden geschreven en georganiseerd binnen dit project.
+These guidelines define how unit tests are written and organized within this project.
 
 ---
 
-## 📆 Structuur
+## 📆 Structure
 
-- Elke functie krijgt één of meerdere `TEST_CASE`s.
-- Één `TEST_CASE` test **exact één scenario**.
-- Geen gedeelde state tussen tests — elke case is **volledig onafhankelijk**.
-- Gebruik `#pragma region` om testgroepen per functie logisch te groeperen.
+- Each function should have one or more `TEST_CASE`s.
+- Each `TEST_CASE` must test **exactly one scenario**.
+- No shared state between tests — every case must be **fully independent**.
+- Use `#pragma region` to logically group test cases by function.
 
 ```cpp
 #pragma region Normalize
@@ -27,31 +27,31 @@ TEST_CASE("Vector2D::Normalize - zero vector") {
 
 ## 🧪 CHECK vs REQUIRE
 
-| Gebruik      | Situatie                                  |
-|--------------|--------------------------------------------|
-| `CHECK()`    | Voor alle normale assertions (meerdere per test mogelijk) |
-| `REQUIRE()`  | Alleen bij essentiële voorwaarden waarbij verdere checks zinloos zijn |
+| Use         | When to apply                                 |
+|-------------|------------------------------------------------|
+| `CHECK()`   | For standard assertions (multiple allowed)     |
+| `REQUIRE()` | Only for essential preconditions that would make further tests irrelevant if failed |
 
 ---
 
-## ✍️ Naamgeving van TEST_CASE
+## ✍️ Naming TEST_CASEs
 
-- Formaat: `Vector2D::FunctionName - scenario beschrijving`
-- Voorbeeld: `"Vector2D::Normalize - zero vector"`
-- Houd beschrijvingen kort, maar specifiek (`"already normalized"`, `"negative x"`, enz.)
-
----
-
-## 💡 Extra tips
-
-- Test ook randgevallen (zero, negative, already normalized, etc.)
-- Gebruik `Equals()` of vergelijkingsmethodes met toleranties voor floats
-- Zet geen logica in tests (geen loops, branches) tenzij noodzakelijk
+- Format: `Vector2D::FunctionName - scenario description`
+- Example: `"Vector2D::Normalize - zero vector"`
+- Keep descriptions short and specific (`"already normalized"`, `"negative x"`, etc.)
 
 ---
 
-## 🧠 Waarom deze stijl?
+## 💡 Extra Tips
 
-- Beter voor debugging (failing test zegt exact wat misloopt)
-- Makkelijk voor Copilot om juiste testcase te suggereren
-- Past bij Clean Code principes (single responsibility, low coupling)
+- Always test edge cases (zero, negative input, already normalized, etc.)
+- Use `Equals()` or floating-point tolerant comparisons
+- Avoid logic inside tests (no loops, branches) unless absolutely necessary
+
+---
+
+## 🧠 Why This Style?
+
+- Easier debugging (a failed test clearly reports the scenario)
+- Helps Copilot generate focused and predictable suggestions
+- Matches Clean Code principles (single responsibility, low coupling)
