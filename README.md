@@ -52,5 +52,5 @@ These conventions are enforced through `.copilot/config.json` and reflected in a
 
 ---
 
-## ## 📄 License
+## 📄 License
 This project is licensed under the [MIT License](LICENSE).
