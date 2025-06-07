@@ -68,14 +68,14 @@ namespace GameMath {
 			@return A new Vector2D perpendicular to this one. */
         Vector2D Perpendicular() const;
 
-        /** @brief Checks if the vector's total magnitude is within tolerance of zero.
-            @param tolerance: The maximum allowed length.
-            @return True if LengthSquared() is below tolerance squared. */
+        /** @brief Checks if the vector's magnitude is within tolerance of zero.
+            @param tolerance The maximum allowed length.
+            @return True if the vector's length is less than or equal to tolerance. */
         bool IsNearlyZero(float tolerance) const;
 
         /** @brief Checks if both components are within tolerance of zero.
             @param tolerance: The per-component threshold.
-			@return True if abs(x) and abs(y) are below tolerance. */
+			@return True if abs(x) and abs(y) are less than or equal to tolerance. */
 		bool IsZero(float tolerance = 0.0f) const;
     };
-} 
+}
