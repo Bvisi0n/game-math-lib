@@ -58,6 +58,10 @@ namespace GameMath {
             @return The squared length of the vector (x² + y²). */
 		float LengthSquared() const;
 
+        /** @brief Normalizes this vector in-place to unit length.
+            If the vector is zero, it becomes (0, 0). */
+        void Normalize();
+
         /** @brief Returns a normalized (unit length) copy of this vector.
             @return A new Vector2D with unit length, or (0, 0) if the vector is zero. */
         Vector2D Normalized() const;

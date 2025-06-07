@@ -135,6 +135,28 @@
         REQUIRE(v.LengthSquared() == Catch::Approx(0.0f));
     }
     #pragma endregion
+    #pragma region Normalize
+    TEST_CASE("Vector2D::Normalize - standard case") {
+        GameMath::Vector2D v{ 3.0f, 4.0f };
+        v.Normalize();
+        CHECK(v.Equals(GameMath::Vector2D{ 0.6f, 0.8f }));
+    }
+    TEST_CASE("Vector2D::Normalize - zero vector fallback") {
+        GameMath::Vector2D v{ 0.0f, 0.0f };
+        v.Normalize();
+        CHECK(v.Equals(GameMath::Vector2D{ 0.0f, 0.0f }));
+    }
+    TEST_CASE("Vector2D::Normalize - already normalized") {
+        GameMath::Vector2D v{ 1.0f, 0.0f };
+        v.Normalize();
+        CHECK(v.Equals(GameMath::Vector2D{ 1.0f, 0.0f }));
+    }
+    TEST_CASE("Vector2D::Normalize - negative direction") {
+        GameMath::Vector2D v{ -5.0f, 0.0f };
+        v.Normalize();
+        CHECK(v.Equals(GameMath::Vector2D{ -1.0f, 0.0f }));
+    }
+    #pragma endregion
     #pragma region .Normalized()
     TEST_CASE("Vector2D Normalized returns unit vector") {
         GameMath::Vector2D v(3.0f, 4.0f);

@@ -56,6 +56,18 @@ namespace GameMath {
 		return (x * x) + (y * y);
     }
 
+    void Vector2D::Normalize()
+    {
+        float length = Length();
+        if (length > 0.0f) {
+            x /= length;
+            y /= length;
+        } else {
+            x = 0.0f;
+            y = 0.0f;
+		}
+    }
+
     Vector2D Vector2D::Normalized() const
     {
 		float length = Length();
