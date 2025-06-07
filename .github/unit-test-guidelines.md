@@ -1,4 +1,4 @@
-# GameMathLib — Unit Test Guidelines
+# Unit Test Guidelines
 
 These guidelines define how unit tests are written and organized within this project.
 
