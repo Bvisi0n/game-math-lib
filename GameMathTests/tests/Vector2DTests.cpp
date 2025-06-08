@@ -292,6 +292,30 @@
     }
 #pragma endregion
 
+#pragma region SnapToGrid
+    // TODO: Uncomment when implementing Vector2D::SnapToGrid
+    //TEST_CASE("Vector2D::SnapToGrid - snaps positive values") {
+    //    GameMath::Vector2D v(3.6f, 7.2f);
+    //    v.SnapToGrid(1.0f);
+    //    CHECK(v.Equals(GameMath::Vector2D(4.0f, 7.0f)));
+    //}
+    //TEST_CASE("Vector2D::SnapToGrid - snaps negative values") {
+    //    GameMath::Vector2D v(-2.7f, -5.1f);
+    //    v.SnapToGrid(1.0f);
+    //    CHECK(v.Equals(GameMath::Vector2D(-3.0f, -5.0f)));
+    //}
+    //TEST_CASE("Vector2D::SnapToGrid - works with fractional cell size") {
+    //    GameMath::Vector2D v(1.24f, 3.76f);
+    //    v.SnapToGrid(0.5f);
+    //    CHECK(v.Equals(GameMath::Vector2D(1.0f, 4.0f)));
+    //}
+    //TEST_CASE("Vector2D::SnapToGrid - zero cell size leaves vector unchanged") {
+    //    GameMath::Vector2D v(3.1f, 5.9f);
+    //    v.SnapToGrid(0.0f);
+    //    CHECK(v.Equals(GameMath::Vector2D(3.1f, 5.9f)));
+    //}
+#pragma endregion
+
 #pragma region Truncate
     // TODO: Uncomment when implementing Vector2D::Truncate
     //TEST_CASE("Vector2D::Truncate - vector longer than max gets shortened") {
