@@ -1,57 +1,71 @@
 # GameMathLib
 
-**GameMathLib** is a lightweight, test-driven C++ math library focused on 2D vector operations for game development. It is modular, documented with Doxygen, and structured for easy integration into larger game engines or academic projects.
+**GameMathLib** is a modular, test-driven C++ math library designed for game development and animation systems.  
+It is lightweight, header-based, and structured for easy integration into custom engines or academic projects.
 
 ---
 
-## ✨ Features
+## ✨ Current Scope
 
-- `Vector2D` class for 2D mathematical operations in game development
-- Common operations: addition, subtraction, scalar division
-- Dot product, vector length, normalization, and perpendicular computation
-- Tolerance-based equality with `Equals()`
-- Defensive fallback logic (e.g., normalize `(0, 0)` → `(0, 0)`)
-- Operator overloading for intuitive usage
-- Fully unit-tested using **Catch2**
-- Clear separation between value-returning and in-place operations
+The library is structured around progressive math modules.  
+Each module is fully unit-tested, Doxygen-documented, and adheres to a strict style and contribution workflow.
 
----
+✅ **Available now**  
+🔧 **Planned / in development**
 
-## 🚀 Getting Started
-
-Clone the repository and open the `.sln` in Visual Studio (Windows) or use CMake for cross-platform builds.
-
-### Prerequisites
-- C++17 compatible compiler
-- [Catch2](https://github.com/catchorg/Catch2) (included via headers)
+| Module       | Status     | Description                                 |
+|--------------|------------|---------------------------------------------|
+| `Vector2D`   | 🧪 In progress | Foundational 2D vector math                |
+| `Vector3D`   | 🔧 Planned  | Core 3D vector operations                    |
+| `Matrix2D/3D`| 🔧 Planned  | Transformations, rotations, projections     |
+| `Conversions`| 🔧 Planned  | Type-safe transforms (Vec2↔Vec3, polar↔cartesian) |
+| `Animation`  | 🔧 Planned  | Time-based math, interpolation, splines     |
+| `GeometricAlgebra` | 🔧 Optional | Advanced structure for rotors, bivectors |
 
 ---
 
-## 📚 Usage Example
-```cpp
-#include "Vector2D.hpp"
+## 📦 Features (Implemented so far)
 
-Vector2D a{3.0f, 4.0f};
-Vector2D b = a.Normalized();
-
-if (b.Equals(Vector2D{0.6f, 0.8f})) {
-    // do something
-}
-```
+- Constructors (default and parameterized)
+- Arithmetic operators: `+`, `-`, `*`, `/`
+- Dot product and length calculations
+- Tolerance-based equality check via `Equals()`
+- Defensive zero handling in normalization
+- Perpendicular vector calculation
+- Comparison operators `==` and `!=`
+- Unit tests for all implemented features using **Catch2**
+- Doxygen documentation with consistent style
 
 ---
 
-## 🧭 Project Conventions
+## 🧭 Project Philosophy
 
-This project follows internal style and structure guides to ensure consistency during solo development.
+GameMathLib aims to balance readability, mathematical correctness, and performance without sacrificing maintainability.  
+It's used to demonstrate modern C++ workflows, clean test-driven development, and AI-assisted tooling integration.
 
-- [Commit Guidelines](.github/commit-guidelines.md)
-- [Doxygen Style Guide](.github/doxygen-style.md)
-- [Unit Test Guidelines](.github/unit-test-guidelines.md)
+---
 
-These conventions are enforced through `.copilot/config.json` and reflected in all source, test, and documentation files.
+## 🧰 Project Conventions
+
+- Written in **modern C++17**, organized as a header-based static library
+- File structure follows: one class or concept per source file
+- Unit tests use **Catch2** and are grouped using `#pragma region`
+- Assertion style: `CHECK()` preferred over `REQUIRE()` unless critical
+- Commit messages, documentation, and testing follow:
+  - [Commit Guidelines](.github/commit-guidelines.md)
+  - [Doxygen Style](.github/doxygen-style.md)
+  - [Unit Test Guidelines](.github/unit-test-guidelines.md)
+- Internal coding style enforced via `.copilot/config.json`
+
+---
+
+## 🤖 AI & Tooling Disclosure
+
+This project uses GitHub Copilot and ChatGPT as drafting assistants for test generation, naming, and structural guidance.  
+All content is reviewed manually. See [AI Disclosure](#ai--tooling-disclosure).
 
 ---
 
 ## 📄 License
-This project is licensed under the [MIT License](LICENSE).
+
+This project is licensed under the [MIT License](LICENSE.md).
