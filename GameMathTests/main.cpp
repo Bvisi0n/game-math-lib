@@ -247,6 +247,7 @@
         CHECK(v.IsZero(0.0f));
         CHECK(v.IsZero());
     }
+    // TODO: Investigate failing tolerance boundary test in IsZero()
     TEST_CASE("Vector2D::IsZero - tolerance boundary") {
         GameMath::Vector2D v(0.1f, 0.0f);
         CHECK_FALSE(v.IsZero(0.1f)); // Exactly on boundary should be false

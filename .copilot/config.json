@@ -1,7 +1,7 @@
 {
   "version": 1,
   "project_name": "GameMathLib",
-  "preferred_test_style": "doctest",
+  "preferred_test_style": "Catch2",
   "custom_guides": [
     ".github/unit-test-guidelines.md",
     ".github/doxygen-style.md",

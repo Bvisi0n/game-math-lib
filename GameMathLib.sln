@@ -7,6 +7,18 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GameMathLib", "GameMathLib\
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GameMathTests", "GameMathTests\GameMathTests.vcxproj", "{D2BE6184-E367-4AF4-9D26-FD3DEDCDE5D4}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8EC462FD-D22E-90A8-E5CE-7E832BA40C5D}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		.github\commit-guidelines.md = .github\commit-guidelines.md
+		.copilot\config.json = .copilot\config.json
+		.github\CONTRIBUTING.md = .github\CONTRIBUTING.md
+		.github\doxygen-style.md = .github\doxygen-style.md
+		LICENSE.md = LICENSE.md
+		README.md = README.md
+		.github\unit-test-guidelines.md = .github\unit-test-guidelines.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
