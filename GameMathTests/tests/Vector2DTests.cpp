@@ -97,19 +97,16 @@
     //    v.ClampLength(2.0f, 6.0f);
     //    CHECK(v.Length() == Catch::Approx(5.0f));
     //}
-
     //TEST_CASE("Vector2D::ClampLength - clamps above max") {
     //    GameMath::Vector2D v(6.0f, 8.0f); // length = 10
     //    v.ClampLength(0.0f, 5.0f);
     //    CHECK(v.Length() == Catch::Approx(5.0f));
     //}
-
     //TEST_CASE("Vector2D::ClampLength - clamps below min") {
     //    GameMath::Vector2D v(0.3f, 0.4f); // length = 0.5
     //    v.ClampLength(1.0f, 10.0f);
     //    CHECK(v.Length() == Catch::Approx(1.0f));
     //}
-
     //TEST_CASE("Vector2D::ClampLength - zero vector stays zero") {
     //    GameMath::Vector2D v(0.0f, 0.0f);
     //    v.ClampLength(1.0f, 5.0f);
@@ -166,6 +163,52 @@
         GameMath::Vector2D b(0.0f, std::numeric_limits<float>::quiet_NaN());
         CHECK_FALSE(a.Equals(b));
         CHECK_FALSE(a.Equals(a));
+    }
+#pragma endregion
+
+#pragma region IsNearlyZero
+    TEST_CASE("Vector2D::IsNearlyZero - very short vector") {
+        GameMath::Vector2D v(0.00001f, 0.00001f);
+        CHECK(v.IsNearlyZero(0.0001f));
+    }
+    TEST_CASE("Vector2D::IsNearlyZero - above threshold") {
+        GameMath::Vector2D v(0.09f, 0.09f);
+        CHECK_FALSE(v.IsNearlyZero(0.1f));
+    }
+    TEST_CASE("Vector2D::IsNearlyZero - exact zero vector") {
+        GameMath::Vector2D v(0.0f, 0.0f);
+        CHECK(v.IsNearlyZero(0.00001f));
+        CHECK(v.IsZero());
+    }
+#pragma endregion
+
+#pragma region IsZero
+    TEST_CASE("Vector2D::IsZero - exact zero") {
+        GameMath::Vector2D v(0.0f, 0.0f);
+        CHECK(v.IsZero());
+    }
+    TEST_CASE("Vector2D::IsZero - non-zero components") {
+        GameMath::Vector2D v(0.0f, 0.1f);
+        CHECK_FALSE(v.IsZero());
+    }
+    TEST_CASE("Vector2D::IsZero - near zero vector") {
+        GameMath::Vector2D v(0.00001f, -0.00001f);
+        CHECK(v.IsZero(0.0001f));
+    }
+    TEST_CASE("Vector2D::IsZero - above threshold") {
+        GameMath::Vector2D v(0.01f, 0.0f);
+        CHECK_FALSE(v.IsZero(0.0001f));
+    }
+    TEST_CASE("Vector2D::IsZero - matches strict when tolerance is 0") {
+        GameMath::Vector2D v(0.0f, 0.0f);
+        CHECK(v.IsZero(0.0f));
+        CHECK(v.IsZero());
+    }
+    TEST_CASE("Vector2D::IsZero - tolerance boundary inclusive") {
+        GameMath::Vector2D v(0.1f, 0.0f);
+        CHECK(v.IsZero(0.1f));          // on boundary
+        CHECK_FALSE(v.IsZero(0.0999f)); // just below
+        CHECK(v.IsZero(0.1001f));       // just above
     }
 #pragma endregion
 
@@ -249,48 +292,26 @@
     }
 #pragma endregion
 
-#pragma region IsNearlyZero
-    TEST_CASE("Vector2D::IsNearlyZero - very short vector") {
-        GameMath::Vector2D v(0.00001f, 0.00001f);
-        CHECK(v.IsNearlyZero(0.0001f));
-    }
-    TEST_CASE("Vector2D::IsNearlyZero - above threshold") {
-        GameMath::Vector2D v(0.09f, 0.09f);
-        CHECK_FALSE(v.IsNearlyZero(0.1f));
-    }
-    TEST_CASE("Vector2D::IsNearlyZero - exact zero vector") {
-        GameMath::Vector2D v(0.0f, 0.0f);
-        CHECK(v.IsNearlyZero(0.00001f));
-        CHECK(v.IsZero());
-    }
-#pragma endregion
-
-#pragma region IsZero
-    TEST_CASE("Vector2D::IsZero - exact zero") {
-        GameMath::Vector2D v(0.0f, 0.0f);
-        CHECK(v.IsZero());
-    }
-    TEST_CASE("Vector2D::IsZero - non-zero components") {
-        GameMath::Vector2D v(0.0f, 0.1f);
-        CHECK_FALSE(v.IsZero());
-    }
-    TEST_CASE("Vector2D::IsZero - near zero vector") {
-        GameMath::Vector2D v(0.00001f, -0.00001f);
-        CHECK(v.IsZero(0.0001f));
-    }
-    TEST_CASE("Vector2D::IsZero - above threshold") {
-        GameMath::Vector2D v(0.01f, 0.0f);
-        CHECK_FALSE(v.IsZero(0.0001f));
-    }
-    TEST_CASE("Vector2D::IsZero - matches strict when tolerance is 0") {
-        GameMath::Vector2D v(0.0f, 0.0f);
-        CHECK(v.IsZero(0.0f));
-        CHECK(v.IsZero());
-    }
-    TEST_CASE("Vector2D::IsZero - tolerance boundary inclusive") {
-        GameMath::Vector2D v(0.1f, 0.0f);
-        CHECK(v.IsZero(0.1f));          // on boundary
-        CHECK_FALSE(v.IsZero(0.0999f)); // just below
-        CHECK(v.IsZero(0.1001f));       // just above
-    }
+#pragma region Truncate
+    // TODO: Uncomment when implementing Vector2D::Truncate
+    //TEST_CASE("Vector2D::Truncate - vector longer than max gets shortened") {
+    //    GameMath::Vector2D v(6.0f, 8.0f); // length = 10
+    //    v.Truncate(5.0f);
+    //    CHECK(v.Length() == Catch::Approx(5.0f));
+    //}
+    //TEST_CASE("Vector2D::Truncate - vector shorter than max remains unchanged") {
+    //    GameMath::Vector2D v(3.0f, 4.0f); // length = 5
+    //    v.Truncate(10.0f);
+    //    CHECK(v.Length() == Catch::Approx(5.0f));
+    //}
+    //TEST_CASE("Vector2D::Truncate - zero vector remains zero") {
+    //    GameMath::Vector2D v(0.0f, 0.0f);
+    //    v.Truncate(5.0f);
+    //    CHECK(v.IsZero());
+    //}
+    //TEST_CASE("Vector2D::Truncate - negative max value treated as zero") {
+    //    GameMath::Vector2D v(3.0f, 4.0f); // length = 5
+    //    v.Truncate(-1.0f);
+    //    CHECK(v.IsZero());
+    //}
 #pragma endregion
