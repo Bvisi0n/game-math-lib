@@ -114,6 +114,29 @@
     //}
 #pragma endregion
 
+#pragma region DistanceTo
+// TODO: Uncomment when implementing Vector2D::DistanceTo
+//TEST_CASE("Vector2D::DistanceTo - standard case") {
+//    GameMath::Vector2D a(0.0f, 0.0f);
+//    GameMath::Vector2D b(3.0f, 4.0f);
+//    CHECK(a.DistanceTo(b) == Catch::Approx(5.0f));
+//}
+//TEST_CASE("Vector2D::DistanceTo - reverse order yields same result") {
+//    GameMath::Vector2D a(3.0f, 4.0f);
+//    GameMath::Vector2D b(0.0f, 0.0f);
+//    CHECK(a.DistanceTo(b) == Catch::Approx(5.0f));
+//}
+//TEST_CASE("Vector2D::DistanceTo - same point yields zero") {
+//    GameMath::Vector2D a(1.0f, 1.0f);
+//    CHECK(a.DistanceTo(a) == Catch::Approx(0.0f));
+//}
+//TEST_CASE("Vector2D::DistanceTo - diagonally aligned points") {
+//    GameMath::Vector2D a(2.0f, 3.0f);
+//    GameMath::Vector2D b(5.0f, 7.0f);
+//    CHECK(a.DistanceTo(b) == Catch::Approx(5.0f));
+//}
+#pragma endregion
+
 #pragma region Dot
     TEST_CASE("Vector2D::Dot - parallel vector") {
         GameMath::Vector2D a(1.0f, 2.0f);
