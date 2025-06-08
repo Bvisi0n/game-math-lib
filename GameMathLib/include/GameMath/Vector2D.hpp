@@ -75,9 +75,9 @@ namespace GameMath {
             @return True if the vector's length is less than or equal to tolerance. */
         bool IsNearlyZero(float tolerance) const;
 
-        /** @brief Checks if both components are within tolerance of zero.
-            @param tolerance: The per-component threshold.
-			@return True if abs(x) and abs(y) are less than or equal to tolerance. */
+        /** @brief Checks if both components are within or equal to the given tolerance.
+            @param tolerance: The per-component inclusive threshold.
+            @return True if abs(x) and abs(y) <= tolerance. */
 		bool IsZero(float tolerance = 0.0f) const;
     };
 }

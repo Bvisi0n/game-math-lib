@@ -247,11 +247,11 @@
         CHECK(v.IsZero(0.0f));
         CHECK(v.IsZero());
     }
-    // TODO: Investigate failing tolerance boundary test in IsZero()
-    TEST_CASE("Vector2D::IsZero - tolerance boundary") {
+    TEST_CASE("Vector2D::IsZero - tolerance boundary inclusive") {
         GameMath::Vector2D v(0.1f, 0.0f);
-        CHECK_FALSE(v.IsZero(0.1f)); // Exactly on boundary should be false
-        CHECK(v.IsZero(0.1001f));    // Just above boundary should be true
+        CHECK(v.IsZero(0.1f));          // on boundary
+        CHECK_FALSE(v.IsZero(0.0999f)); // just below
+        CHECK(v.IsZero(0.1001f));       // just above
     }
     #pragma endregion
 #pragma endregion
