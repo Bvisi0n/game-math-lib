@@ -6,13 +6,14 @@
 
 ## ✨ Features
 
-- Immutable `Vector2D` class with value-returning methods
+- `Vector2D` class for 2D mathematical operations in game development
 - Common operations: addition, subtraction, scalar division
-- Dot product, length, normalization, perpendicular
+- Dot product, vector length, normalization, and perpendicular computation
 - Tolerance-based equality with `Equals()`
 - Defensive fallback logic (e.g., normalize `(0, 0)` → `(0, 0)`)
 - Operator overloading for intuitive usage
 - Fully unit-tested using **Catch2**
+- Clear separation between value-returning and in-place operations
 
 ---
 
