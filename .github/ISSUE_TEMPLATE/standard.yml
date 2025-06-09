@@ -1,0 +1,71 @@
+name: Standard Issue
+description: For features, tests, bugs, refactors, and more.
+title: "[TYPE] [Scope] – Short description"
+labels: []
+assignees: []
+
+body:
+  - type: dropdown
+    id: type
+    attributes:
+      label: 🧩 Type of Issue
+      description: What kind of task is this?
+      options:
+        - type:feature
+        - type:test
+        - type:bug
+        - type:refactor
+        - type:doc
+        - type:cleanup
+    validations:
+      required: true
+
+  - type: dropdown
+    id: status
+    attributes:
+      label: 🚦 Status
+      description: Current progress of this issue.
+      options:
+        - status:todo
+        - status:active
+        - status:blocked
+    validations:
+      required: true
+
+  - type: checklist
+    id: scope
+    attributes:
+      label: 🗂️ Scope
+      description: What part of the code or library does it affect?
+      options:
+        - label: scope:vector2d
+        - label: scope:transform
+        - label: scope:math
+        - label: scope:test
+        - label: scope:docs
+        - label: scope:core
+
+  - type: textarea
+    id: description
+    attributes:
+      label: 🔧 Description
+      description: Describe what this issue is about. Be specific — include function names, expected behavior, etc.
+      placeholder: e.g. Implement Vector2D::Normalize with fallback for zero vector.
+    validations:
+      required: true
+
+  - type: textarea
+    id: tasks
+    attributes:
+      label: ✅ Tasks
+      description: Optional checklist for code, tests, and docs.
+      placeholder: |
+        - [ ] Implement logic
+        - [ ] Write tests
+        - [ ] Add Doxygen comments
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: 💡 Notes
+      description: Optional: reference equations, design constraints, or math notes.

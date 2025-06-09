@@ -51,10 +51,13 @@ It's used to demonstrate modern C++ workflows, clean test-driven development, an
 - File structure follows: one class or concept per source file
 - Unit tests use **Catch2** and are grouped using `#pragma region`
 - Assertion style: `CHECK()` preferred over `REQUIRE()` unless critical
-- Commit messages, documentation, and testing follow:
+- Project conventions are standardized across:
   - [Commit Guidelines](.github/commit-guidelines.md)
   - [Doxygen Style](.github/doxygen-style.md)
   - [Unit Test Guidelines](.github/unit-test-guidelines.md)
+  - [Label System](.github/label-guidelines.md)
+  - [Issue Template Guidelines](.github/issue-template-guidelines.md)
+- All issue tracking is form-based, powered by [standard.yml](.github/ISSUE_TEMPLATE/standard.yml)
 - Internal coding style enforced via `.copilot/config.json`
 
 ---
