@@ -8,7 +8,7 @@ body:
   - type: dropdown
     id: type
     attributes:
-      label: 🧩 Type of Issue
+      label: Type of Issue
       description: What kind of task is this?
       options:
         - type:feature
@@ -23,7 +23,7 @@ body:
   - type: dropdown
     id: status
     attributes:
-      label: 🚦 Status
+      label: Status
       description: Current progress of this issue.
       options:
         - status:todo
@@ -35,7 +35,7 @@ body:
   - type: checklist
     id: scope
     attributes:
-      label: 🗂️ Scope
+      label: Scope
       description: What part of the code or library does it affect?
       options:
         - label: scope:vector2d
@@ -48,7 +48,7 @@ body:
   - type: textarea
     id: description
     attributes:
-      label: 🔧 Description
+      label: Description
       description: Describe what this issue is about. Be specific — include function names, expected behavior, etc.
       placeholder: e.g. Implement Vector2D::Normalize with fallback for zero vector.
     validations:
@@ -57,7 +57,7 @@ body:
   - type: textarea
     id: tasks
     attributes:
-      label: ✅ Tasks
+      label: Tasks
       description: Optional checklist for code, tests, and docs.
       placeholder: |
         - [ ] Implement logic
@@ -67,5 +67,5 @@ body:
   - type: textarea
     id: notes
     attributes:
-      label: 💡 Notes
+      label: Notes
       description: Optional: reference equations, design constraints, or math notes.
