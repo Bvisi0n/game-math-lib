@@ -52,15 +52,19 @@ Run all tests before submitting changes.
 
 ## 🏷️ Issue Creation and Labeling
 
-GameMathLib uses a **form-based issue workflow** to streamline development:
+GameMathLib uses a **Markdown-based issue template** to streamline and standardize development.
 
-- Use the built-in [issue form](.github/ISSUE_TEMPLATE/standard.yml) when reporting bugs or planning features.
-- Label every issue with:
-  - One `type:` (e.g., `type:feature`)
-  - One `status:` (e.g., `status:todo`)
-  - Optionally one or more `scope:` labels (e.g., `scope:vector2d`, `scope:test`)
+- Use the built-in [issue template](.github/ISSUE_TEMPLATE/new-issue.md) to report bugs, propose features, or add tests/docs.
+- Fill out all relevant fields (type, scope, description, tasks, notes).
+- Give your issue a **clear and descriptive title** — avoid redundant tags. Labels will cover categorization.
 
-See the [Label Guidelines](.github/label-guidelines.md) and [Issue Template Guidelines](.github/issue-template-guidelines.md) for full usage.
+### Labeling Rules
+
+- Assign exactly **one** `type:` label (e.g., `type:feature`)
+- Assign exactly **one** `status:` label (e.g., `status:todo`)
+- Optionally add one or more `scope:` labels (e.g., `scope:vector2d`, `scope:test`)
+
+See the [Label Guidelines](.github/label-guidelines.md) and [Issue Template Guidelines](.github/issue-template-guidelines.md) for complete rules.
 
 ---
 

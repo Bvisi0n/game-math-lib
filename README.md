@@ -57,7 +57,7 @@ It's used to demonstrate modern C++ workflows, clean test-driven development, an
   - [Unit Test Guidelines](.github/unit-test-guidelines.md)
   - [Label System](.github/label-guidelines.md)
   - [Issue Template Guidelines](.github/issue-template-guidelines.md)
-- All issue tracking is form-based, powered by [standard.yml](.github/ISSUE_TEMPLATE/standard.yml)
+- Issue tracking uses a [Markdown-based issue template](.github/ISSUE_TEMPLATE/new-issue.md) with structured fields and label-driven categorization
 - Internal coding style enforced via `.copilot/config.json`
 
 ---
