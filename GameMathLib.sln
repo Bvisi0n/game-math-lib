@@ -18,7 +18,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{02EA
 	ProjectSection(SolutionItems) = preProject
 		.github\commit-guidelines.md = .github\commit-guidelines.md
 		.github\CONTRIBUTING.md = .github\CONTRIBUTING.md
-		.github\config.yaml = .github\config.yaml
 		.github\doxygen-style.md = .github\doxygen-style.md
 		.github\issue-template-guidelines.md = .github\issue-template-guidelines.md
 		.github\label-guidelines.md = .github\label-guidelines.md
@@ -32,7 +31,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".copilot", ".copilot", "{89
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ISSUE_TEMPLATE", "ISSUE_TEMPLATE", "{A8785F6F-8699-400E-8F6E-09D585C38C84}"
 	ProjectSection(SolutionItems) = preProject
-		.github\ISSUE_TEMPLATE\new-issue.yaml = .github\ISSUE_TEMPLATE\new-issue.yaml
+		.github\ISSUE_TEMPLATE\new-issue.md = .github\ISSUE_TEMPLATE\new-issue.md
 	EndProjectSection
 EndProject
 Global
