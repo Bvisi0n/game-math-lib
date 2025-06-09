@@ -91,27 +91,41 @@
 #pragma endregion
 
 #pragma region ClampComponents
-    // TODO: Uncomment when implementing Vector2D::ClampComponents
-    //TEST_CASE("Vector2D::ClampComponents - x and y within range") {
-    //    GameMath::Vector2D v(2.0f, 3.0f);
-    //    v.ClampComponents(1.0f, 5.0f, 1.0f, 5.0f);
-    //    CHECK(v.Equals(GameMath::Vector2D(2.0f, 3.0f)));
-    //}
-    //TEST_CASE("Vector2D::ClampComponents - x and y above max") {
-    //    GameMath::Vector2D v(7.0f, 9.0f);
-    //    v.ClampComponents(0.0f, 5.0f, 0.0f, 5.0f);
-    //    CHECK(v.Equals(GameMath::Vector2D(5.0f, 5.0f)));
-    //}
-    //TEST_CASE("Vector2D::ClampComponents - x and y below min") {
-    //    GameMath::Vector2D v(-4.0f, -3.0f);
-    //    v.ClampComponents(-2.0f, 2.0f, -2.0f, 2.0f);
-    //    CHECK(v.Equals(GameMath::Vector2D(-2.0f, -2.0f)));
-    //}
-    //TEST_CASE("Vector2D::ClampComponents - mixed clamping") {
-    //    GameMath::Vector2D v(7.0f, -4.0f);
-    //    v.ClampComponents(0.0f, 5.0f, -2.0f, 2.0f);
-    //    CHECK(v.Equals(GameMath::Vector2D(5.0f, -2.0f)));
-    //}
+    TEST_CASE("Vector2D::ClampComponents - x and y within range") {
+        GameMath::Vector2D v(2.0f, 3.0f);
+        v.ClampComponents(1.0f, 5.0f, 1.0f, 5.0f);
+        CHECK(v.Equals(GameMath::Vector2D(2.0f, 3.0f)));
+    }
+    TEST_CASE("Vector2D::ClampComponents - x and y above max") {
+        GameMath::Vector2D v(7.0f, 9.0f);
+        v.ClampComponents(0.0f, 5.0f, 0.0f, 5.0f);
+        CHECK(v.Equals(GameMath::Vector2D(5.0f, 5.0f)));
+    }
+    TEST_CASE("Vector2D::ClampComponents - x and y below min") {
+        GameMath::Vector2D v(-4.0f, -3.0f);
+        v.ClampComponents(-2.0f, 2.0f, -2.0f, 2.0f);
+        CHECK(v.Equals(GameMath::Vector2D(-2.0f, -2.0f)));
+    }
+    TEST_CASE("Vector2D::ClampComponents - mixed clamping") {
+        GameMath::Vector2D v(7.0f, -4.0f);
+        v.ClampComponents(0.0f, 5.0f, -2.0f, 2.0f);
+        CHECK(v.Equals(GameMath::Vector2D(5.0f, -2.0f)));
+    }
+    TEST_CASE("Vector2D::ClampComponents - clamp x only") {
+        GameMath::Vector2D v(10.0f, 2.0f);
+        v.ClampComponents(0.0f, 5.0f, 0.0f, 5.0f);
+        CHECK(v.Equals(GameMath::Vector2D(5.0f, 2.0f)));
+    }
+    TEST_CASE("Vector2D::ClampComponents - clamp y only") {
+        GameMath::Vector2D v(2.0f, -3.0f);
+        v.ClampComponents(0.0f, 5.0f, 0.0f, 5.0f);
+        CHECK(v.Equals(GameMath::Vector2D(2.0f, 0.0f)));
+    }
+    TEST_CASE("Vector2D::ClampComponents - values on boundary") {
+        GameMath::Vector2D v(0.0f, 5.0f);
+        v.ClampComponents(0.0f, 5.0f, 0.0f, 5.0f);
+        CHECK(v.Equals(GameMath::Vector2D(0.0f, 5.0f))); // no change
+    }
 #pragma endregion
 
 #pragma region ClampLength
