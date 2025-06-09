@@ -19,17 +19,21 @@ This project thrives on clean code, consistent structure, and mathematically cor
 
 Commits must follow the format defined in the [Commit Guidelines](.github/commit-guidelines.md):
 
+```
 [Action] [Scope] [Optional Context]
 
 - [What was changed and why]
 - [Where it happened and any test/doc additions]
+```
 
+```
 Example:
 
 Add GameMath::Vector2D::Perpendicular
 
 - Added a method to compute the 90-degree rotated vector.
 - Wrote 3 unit tests under #pragma region Perpendicular.
+```
 
 ---
 
