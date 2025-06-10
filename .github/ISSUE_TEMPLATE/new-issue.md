@@ -21,11 +21,14 @@ assignees: []
 
 <!-- Select one or more relevant scopes:
 - scope:vector2d
-- scope:transform
-- scope:math
-- scope:test
-- scope:docs
-- scope:core
+- scope:vector3d`
+- scope:matrix`
+- scope:conversion`
+- scope:animation`
+- scope:geometric`
+- scope:test`
+- scope:docs`
+- scope:core`
 -->
 
 ---
