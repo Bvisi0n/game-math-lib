@@ -135,6 +135,7 @@
     <ClCompile Include="catch_amalgamated.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="tests\Vector2DTests.cpp" />
+    <ClCompile Include="tests\Vector3DTests.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="cpp.hint" />

@@ -1,8 +1,7 @@
 #pragma once
 
 namespace GameMath {
-    /** @class Vector2D
-        @brief Represents a 2D mathematical vector with x and y components. */
+    /** @brief Represents a 2D mathematical vector with x and y components. */
     class Vector2D {
     public:
         float x, y;

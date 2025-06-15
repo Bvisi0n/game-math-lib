@@ -126,9 +126,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="include\GameMath\Vector2D.hpp" />
+    <ClInclude Include="include\GameMath\Vector3D.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Vector2D.cpp" />
+    <ClCompile Include="src\Vector3D.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
