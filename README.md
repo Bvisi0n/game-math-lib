@@ -11,7 +11,8 @@ The library is structured around progressive math modules.
 Each module is fully unit-tested, Doxygen-documented, and adheres to a strict style and contribution workflow.
 
 ✅ **Available now**  
-🔧 **Planned / in development**
+🧪 **In progress**  
+🔧 **Planned**
 
 | Module                                | Status         | Description                                                       |
 |---------------------------------------|----------------|-------------------------------------------------------------------|
