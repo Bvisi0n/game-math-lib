@@ -20,15 +20,18 @@ assignees: []
 ## 🗂️ Scope
 
 <!-- Select one or more relevant scopes:
+- scope:conversion
+- scope:matrix
+- scope:quaternion
 - scope:vector2d
-- scope:vector3d`
-- scope:matrix`
-- scope:conversion`
-- scope:animation`
-- scope:geometric`
-- scope:test`
-- scope:docs`
-- scope:core`
+- scope:vector3d
+- scope:animation
+- scope:collision
+- scope:geometric
+- scope:scenegraph
+- scope:core
+- scope:docs
+- scope:test
 -->
 
 ---

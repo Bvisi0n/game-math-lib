@@ -34,15 +34,18 @@ Each issue must follow a consistent structure using the Markdown template. The f
 
 * Select one or more applicable scope labels:
 
+  * `scope:conversion`
+  * `scope:matrix`
+  * `scope:quaternion`
   * `scope:vector2d`
   * `scope:vector3d`
-  * `scope:matrix`
-  * `scope:conversion`
   * `scope:animation`
+  * `scope:collision`
   * `scope:geometric`
-  * `scope:test`
-  * `scope:docs`
+  * `scope:scenegraph`
   * `scope:core`
+  * `scope:docs`
+  * `scope:test`
 
 ### 4. **Description** (`🔧 Description`)
 

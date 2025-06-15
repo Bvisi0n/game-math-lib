@@ -36,17 +36,20 @@ Tracks progress of the issue.
 ## 🗂️ Scope Labels (Muted & Thematic)
 Clarifies which part of the code/library the issue affects.
 
-| Label              | Color         | Hex       | Use Case                                              |
-|-------------------|---------------|-----------|-------------------------------------------------------|
+| Label               | Color         | Hex       | Use Case                                              |
+|--------------------|---------------|-----------|-------------------------------------------------------|
+| `scope:conversion` | Pale Yellow   | `#FFF5B1` | Coordinate and type-safe value conversions            |
+| `scope:matrix`     | Light Lavender| `#E6CCFF` | 2D/3D matrix transformations                          |
+| `scope:quaternion` | Soft Purple   | `#E6CCFF` | Quaternion rotation, interpolation, and operations    |
 | `scope:vector2d`   | Soft Green    | `#C2E0C6` | 2D vector math core module                            |
 | `scope:vector3d`   | Soft Blue     | `#BFDADC` | 3D vector math and operations                         |
-| `scope:matrix`     | Light Lavender| `#E6CCFF` | 2D/3D matrix transformations                          |
-| `scope:conversion` | Pale Yellow   | `#FFF5B1` | Coordinate and type-safe value conversions            |
 | `scope:animation`  | Warm Orange   | `#FFD8B1` | Time-based math, interpolation, Bézier, splines       |
+| `scope:collision`  | Light Red     | `#F8B3B3` | Collision detection, intersection tests, spatial checks |
 | `scope:geometric`  | Light Brown   | `#DCC6AE` | Geometric algebra — rotors, bivectors, etc.           |
-| `scope:test`       | Pale Orange   | `#FAD8C7` | Unit test coverage or test framework logic            |
-| `scope:docs`       | Lavender Gray | `#E6E6FA` | Markdown, Doxygen, or documentation updates           |
+| `scope:scenegraph` | Light Cyan    | `#C3F5FF` | Hierarchical transformations and camera view logic    |
 | `scope:core`       | Neutral Gray  | `#CCCCCC` | Shared constants, global tolerances, config headers   |
+| `scope:docs`       | Lavender Gray | `#E6E6FA` | Markdown, Doxygen, or documentation updates           |
+| `scope:test`       | Pale Orange   | `#FAD8C7` | Unit test coverage or test framework logic            |
 
 ---
 
