@@ -13,14 +13,19 @@ Each module is fully unit-tested, Doxygen-documented, and adheres to a strict st
 ✅ **Available now**  
 🔧 **Planned / in development**
 
-| Module       | Status     | Description                                 |
-|--------------|------------|---------------------------------------------|
-| `Vector2D`   | 🧪 In progress | Foundational 2D vector math                |
-| `Vector3D`   | 🔧 Planned  | Core 3D vector operations                    |
-| `Matrix2D/3D`| 🔧 Planned  | Transformations, rotations, projections     |
-| `Conversions`| 🔧 Planned  | Type-safe transforms (Vec2↔Vec3, polar↔cartesian) |
-| `Animation`  | 🔧 Planned  | Time-based math, interpolation, splines     |
-| `GeometricAlgebra` | 🔧 Optional | Advanced structure for rotors, bivectors |
+| Module                                | Status         | Description                                                       |
+|---------------------------------------|----------------|-------------------------------------------------------------------|
+| `Vector2D` Core Module                | ✅ Complete    | Foundational 2D vector math (normalization, dot, equality, etc.)  |
+| `Vector3D` Core Module                | 🧪 In progress | Core 3D vector operations and directional math                    |
+| `Matrix2D/3D` Transform Module        | 🧪 In progress | Matrix-based transformations, projections, and view logic         |
+| `Quaternion` Module                   | 🔧 Planned     | Quaternion rotation, slerp, interpolation, and conversion         |
+| `Vector2D` Utility Extensions         | 🔧 Planned     | Snapping, clamping, projections, geometric reasoning in 2D        |
+| `Vector3D` Utility Extensions         | 🔧 Planned     | 3D equivalents for vector utilities and analysis                  |
+| `Conversions` Module                  | 🔧 Planned     | Type-safe transforms (Vec2↔Vec3, radians↔degrees, polar↔cartesian)|
+| `Animation Math` Module               | 🔧 Planned     | Time-based math, interpolation, Bézier, and parametric movement   |
+| `Geometric Algebra` Module            | 🔧 Planned     | Advanced algebra for rotors, bivectors, and unified operations    |
+| `Collision & Intersections` Module    | 🔧 Planned     | AABB, raycasting, overlap tests, velocity-aware collision checks  |
+| `Scene Graph & View Transform` Module | 🔧 Planned     | Hierarchical transforms, camera systems, and scene control        |
 
 ---
 
