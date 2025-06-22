@@ -7,5 +7,13 @@ namespace GameMath {
         float x, y, z;
 
         Vector3D(float x = 0.0f, float y = 0.0f, float z = 0.0f);
+
+        /** @brief Returns the magnitude of the vector.
+            @return The Euclidean length of this vector. */
+        float Length() const;
+
+        /** @brief Returns the squared magnitude of the vector.
+            @return The sum of squared components. Avoids sqrt for performance. */
+        float LengthSquared() const;
     };
 }
