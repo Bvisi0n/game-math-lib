@@ -46,6 +46,26 @@ namespace GameMath {
         y = std::clamp(y, minY, maxY);
     }
 
+    void Vector2D::ClampLength(float minLength, float maxLength)
+    {
+        assert(minLength <= maxLength && "ClampLength: minLength must be <= maxLength");
+        float lenSq = LengthSquared();
+        if (lenSq == 0.0f)
+            return; // Do not modify zero vector
+        float minSq = minLength * minLength;
+        float maxSq = maxLength * maxLength;
+        if (lenSq < minSq) {
+            float scale = minLength / std::sqrt(lenSq);
+            x *= scale;
+            y *= scale;
+        }
+        else if (lenSq > maxSq) {
+            float scale = maxLength / std::sqrt(lenSq);
+            x *= scale;
+            y *= scale;
+        }
+    }
+
     float Vector2D::Dot(const Vector2D& other) const
     {
 		return (x * other.x) + (y * other.y);

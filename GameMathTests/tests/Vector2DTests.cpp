@@ -129,27 +129,31 @@
 #pragma endregion
 
 #pragma region ClampLength
-    // TODO: Uncomment when implementing Vector2D::ClampLength
-    //TEST_CASE("Vector2D::ClampLength - within range remains unchanged") {
-    //    GameMath::Vector2D v(3.0f, 4.0f); // length = 5
-    //    v.ClampLength(2.0f, 6.0f);
-    //    CHECK(v.Length() == Catch::Approx(5.0f));
-    //}
-    //TEST_CASE("Vector2D::ClampLength - clamps above max") {
-    //    GameMath::Vector2D v(6.0f, 8.0f); // length = 10
-    //    v.ClampLength(0.0f, 5.0f);
-    //    CHECK(v.Length() == Catch::Approx(5.0f));
-    //}
-    //TEST_CASE("Vector2D::ClampLength - clamps below min") {
-    //    GameMath::Vector2D v(0.3f, 0.4f); // length = 0.5
-    //    v.ClampLength(1.0f, 10.0f);
-    //    CHECK(v.Length() == Catch::Approx(1.0f));
-    //}
-    //TEST_CASE("Vector2D::ClampLength - zero vector stays zero") {
-    //    GameMath::Vector2D v(0.0f, 0.0f);
-    //    v.ClampLength(1.0f, 5.0f);
-    //    CHECK(v.IsZero());
-    //}
+    TEST_CASE("Vector2D::ClampLength - within range remains unchanged") {
+        GameMath::Vector2D v(3.0f, 4.0f); // length = 5
+        v.ClampLength(2.0f, 6.0f);
+        CHECK(v.Length() == Catch::Approx(5.0f));
+    }
+    TEST_CASE("Vector2D::ClampLength - clamps above max") {
+        GameMath::Vector2D v(6.0f, 8.0f); // length = 10
+        v.ClampLength(0.0f, 5.0f);
+        CHECK(v.Length() == Catch::Approx(5.0f));
+    }
+    TEST_CASE("Vector2D::ClampLength - clamps below min") {
+        GameMath::Vector2D v(0.3f, 0.4f); // length = 0.5
+        v.ClampLength(1.0f, 10.0f);
+        CHECK(v.Length() == Catch::Approx(1.0f));
+    }
+    TEST_CASE("Vector2D::ClampLength - zero vector stays zero") {
+        GameMath::Vector2D v(0.0f, 0.0f);
+        v.ClampLength(1.0f, 5.0f);
+        CHECK(v.IsZero());
+    }
+    TEST_CASE("Vector2D::ClampLength - min equals max clamps to exact length") {
+        GameMath::Vector2D v(10.0f, 0.0f); // length = 10
+        v.ClampLength(5.0f, 5.0f);
+        CHECK(v.Length() == Catch::Approx(5.0f));
+    }
 #pragma endregion
 
 #pragma region DistanceTo

@@ -38,13 +38,19 @@ namespace GameMath {
             @return True if either component differs exactly. Use Equals() for tolerance. */
 		bool operator!=(const Vector2D& other) const;
 
-        /** @brief Clamps both x and y to specified min/max boundaries.
+        /** @brief Clamps each component to its specified min/max range. 
+            Asserts in debug if min > max. No check in release.
             @param minX: Lower bound for x.
             @param maxX: Upper bound for x.
             @param minY: Lower bound for y.
-            @param maxY: Upper bound for y.
-            @note If min > max for either axis, the function triggers an assert in debug builds. Behavior is undefined in release. */
+            @param maxY: Upper bound for y. */
         void ClampComponents(float minX, float maxX, float minY, float maxY);
+
+        /** @brief Clamps vector length between min and max. 
+            Asserts in debug if min > max. No check in release.
+            @param minLength: Lower bound for the vector’s length.
+            @param maxLength: Upper bound for the vector’s length. */
+        void ClampLength(float minLength, float maxLength);
 
         /** @brief Calculates the dot product between this vector and another.
             @param other: The vector to compute the dot product with.
