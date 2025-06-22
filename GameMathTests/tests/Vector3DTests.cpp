@@ -47,6 +47,50 @@
     //}
 #pragma endregion
 
+#pragma region Equals
+    TEST_CASE("GameMath::Vector3D::Equals - identical vectors") {
+        GameMath::Vector3D v{ 1.0f, 2.0f, 3.0f };
+        GameMath::Vector3D other{ 1.0f, 2.0f, 3.0f };
+        CHECK(v.Equals(other));
+    }
+    TEST_CASE("GameMath::Vector3D::Equals - within tolerance") {
+        GameMath::Vector3D v{ 1.00001f, 2.00001f, 3.00001f };
+        GameMath::Vector3D other{ 1.00002f, 2.00002f, 3.00002f };
+        CHECK(v.Equals(other));
+    }
+    TEST_CASE("GameMath::Vector3D::Equals - outside tolerance on x") {
+        GameMath::Vector3D v{ 1.0f, 2.0f, 3.0f };
+        GameMath::Vector3D other{ 1.001f, 2.0f, 3.0f };
+        CHECK_FALSE(v.Equals(other));
+    }
+    TEST_CASE("GameMath::Vector3D::Equals - outside tolerance on y") {
+        GameMath::Vector3D v{ 1.0f, 2.0f, 3.0f };
+        GameMath::Vector3D other{ 1.0f, 2.001f, 3.0f };
+        CHECK_FALSE(v.Equals(other));
+    }
+    TEST_CASE("GameMath::Vector3D::Equals - outside tolerance on z") {
+        GameMath::Vector3D v{ 1.0f, 2.0f, 3.0f };
+        GameMath::Vector3D other{ 1.0f, 2.0f, 3.001f };
+        CHECK_FALSE(v.Equals(other));
+    }
+    TEST_CASE("GameMath::Vector3D::Equals - negative vs positive zero") {
+        GameMath::Vector3D v{ -0.0f, 0.0f, -0.0f };
+        GameMath::Vector3D other{ 0.0f, 0.0f, 0.0f };
+        CHECK(v.Equals(other));
+    }
+    TEST_CASE("GameMath::Vector3D::Equals - custom tolerance") {
+        GameMath::Vector3D v{ 1.0f, 2.0f, 3.0f };
+        GameMath::Vector3D other{ 1.01f, 2.01f, 3.01f };
+        CHECK(v.Equals(other, 0.02f));
+    }
+    TEST_CASE("GameMath::Vector3D::Equals - comparison with NaN components") {
+        GameMath::Vector3D a{ std::numeric_limits<float>::quiet_NaN(), 1.0f, 2.0f };
+        GameMath::Vector3D b{ 0.0f, 1.0f, std::numeric_limits<float>::quiet_NaN() };
+        CHECK_FALSE(a.Equals(b));
+        CHECK_FALSE(a.Equals(a));
+    }
+#pragma endregion
+
 #pragma region Length
     TEST_CASE("Vector3D::Length - zero vector") {
         GameMath::Vector3D v{ 0.0f, 0.0f, 0.0f };

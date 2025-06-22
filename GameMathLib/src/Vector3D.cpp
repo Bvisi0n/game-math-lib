@@ -15,6 +15,12 @@ namespace GameMath {
 		);
 	}
 
+	bool Vector3D::Equals(const Vector3D& other, float tolerance) const {
+		return (std::abs(x - other.x) <= tolerance &&
+				std::abs(y - other.y) <= tolerance &&
+				std::abs(z - other.z) <= tolerance);
+	}
+
 	float Vector3D::Length() const {
 		return std::sqrt(LengthSquared());
 	}
