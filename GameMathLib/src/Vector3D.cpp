@@ -6,6 +6,15 @@ namespace GameMath {
 		: x(x), y(y), z(z) 
 	{}
 
+	Vector3D Vector3D::Cross(const Vector3D& other) const
+	{
+		return Vector3D(
+			y * other.z - z * other.y,
+			z * other.x - x * other.z,
+			x * other.y - y * other.x
+		);
+	}
+
 	float Vector3D::Length() const {
 		return std::sqrt(LengthSquared());
 	}

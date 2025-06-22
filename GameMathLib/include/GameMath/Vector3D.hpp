@@ -8,6 +8,11 @@ namespace GameMath {
 
         Vector3D(float x = 0.0f, float y = 0.0f, float z = 0.0f);
 
+        /** @brief Returns the cross product of this vector and another.
+            @param other: The vector to cross with.
+            @return A new Vector3D perpendicular to both input vectors. */
+		Vector3D Cross(const Vector3D& other) const;
+
         /** @brief Returns the magnitude of the vector.
             @return The Euclidean length of this vector. */
         float Length() const;
