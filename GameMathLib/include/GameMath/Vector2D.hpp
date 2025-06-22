@@ -84,7 +84,7 @@ namespace GameMath {
             @return A new Vector2D with unit length, or (0, 0) if the vector is zero. */
         Vector2D Normalized() const;
 
-        /** @brief Returns a 90° counter-clockwise rotated copy of this vector
+        /** @brief Returns a 90° counter-clockwise rotated copy of this vector.
 			@return A new Vector2D perpendicular to this one. */
         Vector2D Perpendicular() const;
 
@@ -97,6 +97,12 @@ namespace GameMath {
             @param tolerance: The per-component inclusive threshold.
             @return True if abs(x) and abs(y) <= tolerance. */
 		bool IsZero(float tolerance = 0.0f) const;
+
+        /** @brief Rounds both vector components to the nearest multiple of gridSize.
+            Snaps the vector in place. If gridSize is zero, the vector remains unchanged.
+            Negative values are converted to positive internally. 
+            @param gridSize: The grid spacing to snap to. Must be non-zero. */
+        void SnapToGrid(float gridSize);
 
         /** @brief Truncates the vector to a maximum length.
             If the vector's length exceeds maxLength, it is scaled down to that length.

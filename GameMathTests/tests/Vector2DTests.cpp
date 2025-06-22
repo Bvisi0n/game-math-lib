@@ -372,27 +372,46 @@
 #pragma endregion
 
 #pragma region SnapToGrid
-    // TODO: Uncomment when implementing Vector2D::SnapToGrid
-    //TEST_CASE("Vector2D::SnapToGrid - snaps positive values") {
-    //    GameMath::Vector2D v(3.6f, 7.2f);
-    //    v.SnapToGrid(1.0f);
-    //    CHECK(v.Equals(GameMath::Vector2D(4.0f, 7.0f)));
-    //}
-    //TEST_CASE("Vector2D::SnapToGrid - snaps negative values") {
-    //    GameMath::Vector2D v(-2.7f, -5.1f);
-    //    v.SnapToGrid(1.0f);
-    //    CHECK(v.Equals(GameMath::Vector2D(-3.0f, -5.0f)));
-    //}
-    //TEST_CASE("Vector2D::SnapToGrid - works with fractional cell size") {
-    //    GameMath::Vector2D v(1.24f, 3.76f);
-    //    v.SnapToGrid(0.5f);
-    //    CHECK(v.Equals(GameMath::Vector2D(1.0f, 4.0f)));
-    //}
-    //TEST_CASE("Vector2D::SnapToGrid - zero cell size leaves vector unchanged") {
-    //    GameMath::Vector2D v(3.1f, 5.9f);
-    //    v.SnapToGrid(0.0f);
-    //    CHECK(v.Equals(GameMath::Vector2D(3.1f, 5.9f)));
-    //}
+    TEST_CASE("Vector2D::SnapToGrid - snaps positive values") {
+        GameMath::Vector2D v(3.6f, 7.2f);
+        v.SnapToGrid(1.0f);
+        CHECK(v.Equals(GameMath::Vector2D(4.0f, 7.0f)));
+    }
+    TEST_CASE("Vector2D::SnapToGrid - snaps negative values") {
+        GameMath::Vector2D v(-2.7f, -5.1f);
+        v.SnapToGrid(1.0f);
+        CHECK(v.Equals(GameMath::Vector2D(-3.0f, -5.0f)));
+    }
+    TEST_CASE("Vector2D::SnapToGrid - works with fractional grid size") {
+        GameMath::Vector2D v(1.24f, 3.76f);
+        v.SnapToGrid(0.5f);
+        CHECK(v.Equals(GameMath::Vector2D(1.0f, 4.0f)));
+    }
+    TEST_CASE("Vector2D::SnapToGrid - zero grid size leaves vector unchanged") {
+        GameMath::Vector2D v(3.1f, 5.9f);
+        v.SnapToGrid(0.0f);
+        CHECK(v.Equals(GameMath::Vector2D(3.1f, 5.9f)));
+    }
+    TEST_CASE("Vector2D::SnapToGrid - grid-aligned input remains unchanged") {
+        GameMath::Vector2D v(2.0f, -3.5f);
+        v.SnapToGrid(0.5f);
+        CHECK(v.Equals(GameMath::Vector2D(2.0f, -3.5f)));
+    }
+    TEST_CASE("Vector2D::SnapToGrid - negative grid size handled safely") {
+        GameMath::Vector2D v(1.24f, 3.76f);
+        v.SnapToGrid(-0.5f);
+        CHECK(v.Equals(GameMath::Vector2D(1.0f, 4.0f)));
+    }
+    TEST_CASE("Vector2D::SnapToGrid - very small grid size approximates original") {
+        GameMath::Vector2D v(2.345678f, -1.234567f);
+        v.SnapToGrid(1e-7f);
+        CHECK(v.Equals(GameMath::Vector2D(2.345678f, -1.234567f)));
+    }
+    TEST_CASE("Vector2D::SnapToGrid - extremely large grid size snaps to origin") {
+        GameMath::Vector2D v(123.456f, 789.123f);
+        v.SnapToGrid(1e10f);
+        CHECK(v.Equals(GameMath::Vector2D(0.0f, 0.0f)));
+    }
 #pragma endregion
 
 #pragma region Truncate

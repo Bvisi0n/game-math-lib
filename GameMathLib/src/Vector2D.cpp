@@ -127,6 +127,16 @@ namespace GameMath {
         return (std::abs(x) <= tolerance && std::abs(y) <= tolerance);
 	}
 
+    void Vector2D::SnapToGrid(float gridSize)
+    {
+        if (gridSize == 0.0f) {
+            return; // No change if grid size is zero
+        }
+        float absGridSize = std::abs(gridSize);
+        x = std::round(x / absGridSize) * absGridSize;
+        y = std::round(y / absGridSize) * absGridSize;
+    }
+
     void Vector2D::Truncate(float maxLength)
     {
         if (maxLength <= 0.0f || IsZero()) {
