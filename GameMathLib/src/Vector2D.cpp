@@ -66,6 +66,11 @@ namespace GameMath {
         }
     }
 
+    float Vector2D::DistanceTo(const Vector2D& other) const
+    {
+        return (*this - other).Length();
+    }
+
     float Vector2D::Dot(const Vector2D& other) const
     {
 		return (x * other.x) + (y * other.y);

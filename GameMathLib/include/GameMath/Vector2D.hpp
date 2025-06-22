@@ -52,6 +52,11 @@ namespace GameMath {
             @param maxLength: Upper bound for the vector’s length. */
         void ClampLength(float minLength, float maxLength);
 
+        /** @brief Returns the Euclidean distance to another vector.
+            @param other: The vector to measure distance to.
+            @return float: The Euclidean distance between this vector and other. */
+        float DistanceTo(const Vector2D& other) const;
+
         /** @brief Calculates the dot product between this vector and another.
             @param other: The vector to compute the dot product with.
             @return The result of the dot product as a float. */
