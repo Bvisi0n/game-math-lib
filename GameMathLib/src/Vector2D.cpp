@@ -121,4 +121,20 @@ namespace GameMath {
     {
         return (std::abs(x) <= tolerance && std::abs(y) <= tolerance);
 	}
+
+    void Vector2D::Truncate(float maxLength)
+    {
+        if (maxLength <= 0.0f || IsZero()) {
+            x = 0.0f;
+            y = 0.0f;
+            return;
+        }
+        float lenSq = LengthSquared();
+        float maxSq = maxLength * maxLength;
+        if (lenSq > maxSq) {
+            float scale = maxLength / std::sqrt(lenSq);
+            x *= scale;
+            y *= scale;
+        }
+    }
 }

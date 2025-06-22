@@ -92,5 +92,11 @@ namespace GameMath {
             @param tolerance: The per-component inclusive threshold.
             @return True if abs(x) and abs(y) <= tolerance. */
 		bool IsZero(float tolerance = 0.0f) const;
+
+        /** @brief Truncates the vector to a maximum length.
+            If the vector's length exceeds maxLength, it is scaled down to that length.
+            If the vector is zero, it remains unchanged.
+            @param maxLength: The maximum allowed length for the vector. */
+        void Truncate(float maxLength);
     };
 }

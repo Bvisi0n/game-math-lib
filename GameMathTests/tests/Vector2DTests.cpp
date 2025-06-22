@@ -382,25 +382,24 @@
 #pragma endregion
 
 #pragma region Truncate
-    // TODO: Uncomment when implementing Vector2D::Truncate
-    //TEST_CASE("Vector2D::Truncate - vector longer than max gets shortened") {
-    //    GameMath::Vector2D v(6.0f, 8.0f); // length = 10
-    //    v.Truncate(5.0f);
-    //    CHECK(v.Length() == Catch::Approx(5.0f));
-    //}
-    //TEST_CASE("Vector2D::Truncate - vector shorter than max remains unchanged") {
-    //    GameMath::Vector2D v(3.0f, 4.0f); // length = 5
-    //    v.Truncate(10.0f);
-    //    CHECK(v.Length() == Catch::Approx(5.0f));
-    //}
-    //TEST_CASE("Vector2D::Truncate - zero vector remains zero") {
-    //    GameMath::Vector2D v(0.0f, 0.0f);
-    //    v.Truncate(5.0f);
-    //    CHECK(v.IsZero());
-    //}
-    //TEST_CASE("Vector2D::Truncate - negative max value treated as zero") {
-    //    GameMath::Vector2D v(3.0f, 4.0f); // length = 5
-    //    v.Truncate(-1.0f);
-    //    CHECK(v.IsZero());
-    //}
+    TEST_CASE("Vector2D::Truncate - vector longer than max gets shortened") {
+        GameMath::Vector2D v(6.0f, 8.0f); // length = 10
+        v.Truncate(5.0f);
+        CHECK(v.Length() == Catch::Approx(5.0f));
+    }
+    TEST_CASE("Vector2D::Truncate - vector shorter than max remains unchanged") {
+        GameMath::Vector2D v(3.0f, 4.0f); // length = 5
+        v.Truncate(10.0f);
+        CHECK(v.Length() == Catch::Approx(5.0f));
+    }
+    TEST_CASE("Vector2D::Truncate - zero vector remains zero") {
+        GameMath::Vector2D v(0.0f, 0.0f);
+        v.Truncate(5.0f);
+        CHECK(v.IsZero());
+    }
+    TEST_CASE("Vector2D::Truncate - negative max value treated as zero") {
+        GameMath::Vector2D v(3.0f, 4.0f); // length = 5
+        v.Truncate(-1.0f);
+        CHECK(v.IsZero());
+    }
 #pragma endregion
