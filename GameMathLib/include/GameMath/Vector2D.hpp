@@ -2,8 +2,7 @@
 
 namespace GameMath {
     /** @brief Represents a 2D mathematical vector with x and y components. */
-    class Vector2D {
-    public:
+    struct Vector2D {
         float x, y;
 
         Vector2D(float x = 0.0f, float y = 0.0f);
