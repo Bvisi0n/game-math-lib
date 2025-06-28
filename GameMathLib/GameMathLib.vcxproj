@@ -126,11 +126,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="include\GameMath\Matrix2D.hpp" />
+    <ClInclude Include="include\GameMath\Matrix3D.hpp" />
     <ClInclude Include="include\GameMath\Vector2D.hpp" />
     <ClInclude Include="include\GameMath\Vector3D.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Matrix2D.cpp" />
+    <ClCompile Include="src\Matrix3D.cpp" />
     <ClCompile Include="src\Vector2D.cpp" />
     <ClCompile Include="src\Vector3D.cpp" />
   </ItemGroup>
