@@ -5,39 +5,39 @@
     TEST_CASE("Matrix2D – Default constructor produces identity matrix", "[Matrix2D]") {
         GameMath::Matrix2D m;
 
-        REQUIRE(m.m[0][0] == Catch::Approx(1.0f));
-        REQUIRE(m.m[0][1] == Catch::Approx(0.0f));
-        REQUIRE(m.m[0][2] == Catch::Approx(0.0f));
+        REQUIRE(m.matrix[0][0] == Catch::Approx(1.0f));
+        REQUIRE(m.matrix[0][1] == Catch::Approx(0.0f));
+        REQUIRE(m.matrix[0][2] == Catch::Approx(0.0f));
 
-        REQUIRE(m.m[1][0] == Catch::Approx(0.0f));
-        REQUIRE(m.m[1][1] == Catch::Approx(1.0f));
-        REQUIRE(m.m[1][2] == Catch::Approx(0.0f));
+        REQUIRE(m.matrix[1][0] == Catch::Approx(0.0f));
+        REQUIRE(m.matrix[1][1] == Catch::Approx(1.0f));
+        REQUIRE(m.matrix[1][2] == Catch::Approx(0.0f));
 
-        REQUIRE(m.m[2][0] == Catch::Approx(0.0f));
-        REQUIRE(m.m[2][1] == Catch::Approx(0.0f));
-        REQUIRE(m.m[2][2] == Catch::Approx(1.0f));
+        REQUIRE(m.matrix[2][0] == Catch::Approx(0.0f));
+        REQUIRE(m.matrix[2][1] == Catch::Approx(0.0f));
+        REQUIRE(m.matrix[2][2] == Catch::Approx(1.0f));
     }
     TEST_CASE("Matrix2D – Constructor with identity = true also produces identity matrix", "[Matrix2D]") {
         GameMath::Matrix2D m(true);
 
-        REQUIRE(m.m[0][0] == Catch::Approx(1.0f));
-        REQUIRE(m.m[0][1] == Catch::Approx(0.0f));
-        REQUIRE(m.m[0][2] == Catch::Approx(0.0f));
+        REQUIRE(m.matrix[0][0] == Catch::Approx(1.0f));
+        REQUIRE(m.matrix[0][1] == Catch::Approx(0.0f));
+        REQUIRE(m.matrix[0][2] == Catch::Approx(0.0f));
 
-        REQUIRE(m.m[1][0] == Catch::Approx(0.0f));
-        REQUIRE(m.m[1][1] == Catch::Approx(1.0f));
-        REQUIRE(m.m[1][2] == Catch::Approx(0.0f));
+        REQUIRE(m.matrix[1][0] == Catch::Approx(0.0f));
+        REQUIRE(m.matrix[1][1] == Catch::Approx(1.0f));
+        REQUIRE(m.matrix[1][2] == Catch::Approx(0.0f));
 
-        REQUIRE(m.m[2][0] == Catch::Approx(0.0f));
-        REQUIRE(m.m[2][1] == Catch::Approx(0.0f));
-        REQUIRE(m.m[2][2] == Catch::Approx(1.0f));
+        REQUIRE(m.matrix[2][0] == Catch::Approx(0.0f));
+        REQUIRE(m.matrix[2][1] == Catch::Approx(0.0f));
+        REQUIRE(m.matrix[2][2] == Catch::Approx(1.0f));
     }
     TEST_CASE("Matrix2D – Constructor with identity = false produces zero matrix", "[Matrix2D]") {
         GameMath::Matrix2D m(false);
 
         for (int row = 0; row < 3; ++row) {
             for (int col = 0; col < 3; ++col) {
-                REQUIRE(m.m[row][col] == Catch::Approx(0.0f));
+                REQUIRE(m.matrix[row][col] == Catch::Approx(0.0f));
             }
         }
     }
