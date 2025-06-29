@@ -26,6 +26,14 @@ namespace GameMath {
             @return The sum of squared components. Avoids sqrt for performance. */
         float LengthSquared() const;
 
+        /** @brief Normalizes the vector in-place (makes its length 1).
+            If the vector is zero-length, it remains unchanged. */
+        void Normalize();
+
+        /** @brief Returns a normalized copy of this vector.
+            @return A unit vector pointing in the same direction. Returns (0,0,0) if the original vector is zero. */
+        Vector3D Normalized() const;
+
         /** @brief Returns true if the vector's magnitude is almost zero (but not necessarily exactly).
             @param tolerance: Threshold under which the vector is considered nearly zero.
             @return True if squared length is strictly less than tolerance squared. */

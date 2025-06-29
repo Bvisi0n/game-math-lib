@@ -30,6 +30,30 @@ namespace GameMath {
         return x * x + y * y + z * z;
     }
 
+    void Vector3D::Normalize() {
+        float lenSq = LengthSquared();
+        if (lenSq > 0.0f) {
+            float invLen = 1.0f / std::sqrt(lenSq);
+            x *= invLen;
+            y *= invLen;
+            z *= invLen;
+        }
+        else {
+            x = 0.0f;
+            y = 0.0f;
+            z = 0.0f;
+        }
+    }
+
+    Vector3D Vector3D::Normalized() const {
+        float lenSq = LengthSquared();
+        if (lenSq > 0.0f) {
+            float invLen = 1.0f / std::sqrt(lenSq);
+            return Vector3D(x * invLen, y * invLen, z * invLen);
+        }
+        return Vector3D(0.0f, 0.0f, 0.0f);
+    }
+
     bool Vector3D::IsNearlyZero(float tolerance) const {
         return LengthSquared() < tolerance * tolerance;
     }
