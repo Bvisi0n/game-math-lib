@@ -91,25 +91,26 @@ namespace GameMath {
 		return (x * x) + (y * y);
     }
 
-    void Vector2D::Normalize()
-    {
-        float length = Length();
-        if (length > 0.0f) {
-            x /= length;
-            y /= length;
-        } else {
+    void Vector2D::Normalize() {
+        float lenSq = LengthSquared();
+        if (lenSq > 0.0f) {
+            float invLen = 1.0f / std::sqrt(lenSq);
+            x *= invLen;
+            y *= invLen;
+        }
+        else {
             x = 0.0f;
             y = 0.0f;
-		}
+        }
     }
 
-    Vector2D Vector2D::Normalized() const
-    {
-		float length = Length();
-        if (length == 0.0f) {
-            return Vector2D(0.0f, 0.0f);
-		}
-		return Vector2D(x / length, y / length);
+    Vector2D Vector2D::Normalized() const {
+        float lenSq = LengthSquared();
+        if (lenSq > 0.0f) {
+            float invLen = 1.0f / std::sqrt(lenSq);
+            return Vector2D(x * invLen, y * invLen);
+        }
+        return Vector2D(0.0f, 0.0f);
     }
 
     Vector2D Vector2D::Perpendicular() const
