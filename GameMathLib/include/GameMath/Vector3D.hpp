@@ -10,7 +10,7 @@ namespace GameMath {
         /** @brief Returns the cross product of this vector and another.
             @param other: The vector to cross with.
             @return A new Vector3D perpendicular to both input vectors. */
-		Vector3D Cross(const Vector3D& other) const;
+        Vector3D Cross(const Vector3D& other) const;
 
         /** @brief Compares two vectors using a tolerance value.
             @param other: The vector to compare against.
@@ -25,5 +25,15 @@ namespace GameMath {
         /** @brief Returns the squared magnitude of the vector.
             @return The sum of squared components. Avoids sqrt for performance. */
         float LengthSquared() const;
+
+        /** @brief Returns true if the vector's magnitude is almost zero (but not necessarily exactly).
+            @param tolerance: Threshold under which the vector is considered nearly zero.
+            @return True if squared length is strictly less than tolerance squared. */
+        bool IsNearlyZero(float tolerance) const;
+
+        /** @brief Returns true if the vector is exactly (0, 0, 0) or within a given tolerance.
+            @param tolerance: Maximum allowed vector length to still be considered zero.
+            @return True if vector's squared length is less than or equal to tolerance squared. */
+        bool IsZero(float tolerance = 0.0f) const;
     };
 }
