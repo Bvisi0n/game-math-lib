@@ -1,4 +1,4 @@
-# 🧪 GameSystemsLab — My Playground for GameDev Systems
+# 🧪 GameSystemsLab
 
 **GameSystemsLab** is a personal playground — a sandbox where I write unit-tested, documented C++ code that relates to game development.
 
