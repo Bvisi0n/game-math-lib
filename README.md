@@ -1,80 +1,56 @@
-# GameMathLib
+# 🧪 GameSystemsLab — My Playground for GameDev Systems
 
-**GameMathLib** is a modular, test-driven C++ math library designed for game development and animation systems.  
-It is lightweight, header-based, and structured for easy integration into custom engines or academic projects.
+**GameSystemsLab** is a personal playground — a sandbox where I write unit-tested, documented C++ code that relates to game development.
 
----
+This isn’t a framework.  
+This isn’t a library.  
+This is my lab.
 
-## ✨ Current Scope
+I use it to:
 
-The library is structured around progressive math modules.  
-Each module is fully unit-tested, Doxygen-documented, and adheres to a strict style and contribution workflow.
+- Explore ideas
+- Build reusable, engine-friendly tools
+- Document game-related math and systems
+- Keep a cheat sheet of stuff I don’t want to reinvent every time
 
-✅ **Available now**  
-🧪 **In progress**  
-🔧 **Planned**
-
-| Module                                | Status         | Description                                                       |
-|---------------------------------------|----------------|-------------------------------------------------------------------|
-| `Vector2D` Core Module                | ✅ Complete    | Foundational 2D vector math (normalization, dot, equality, etc.)  |
-| `Vector3D` Core Module                | 🧪 In progress | Core 3D vector operations and directional math                    |
-| `Matrix2D/3D` Transform Module        | 🧪 In progress | Matrix-based transformations, projections, and view logic         |
-| `Quaternion` Module                   | 🔧 Planned     | Quaternion rotation, slerp, interpolation, and conversion         |
-| `Vector2D` Utility Extensions         | 🔧 Planned     | Snapping, clamping, projections, geometric reasoning in 2D        |
-| `Vector3D` Utility Extensions         | 🔧 Planned     | 3D equivalents for vector utilities and analysis                  |
-| `Conversions` Module                  | 🔧 Planned     | Type-safe transforms (Vec2↔Vec3, radians↔degrees, polar↔cartesian)|
-| `Animation Math` Module               | 🔧 Planned     | Time-based math, interpolation, Bézier, and parametric movement   |
-| `Geometric Algebra` Module            | 🔧 Planned     | Advanced algebra for rotors, bivectors, and unified operations    |
-| `Collision & Intersections` Module    | 🔧 Planned     | AABB, raycasting, overlap tests, velocity-aware collision checks  |
-| `Scene Graph & View Transform` Module | 🔧 Planned     | Hierarchical transforms, camera systems, and scene control        |
+The structure may look suspiciously like a real library — and maybe one day it will be — but for now, it’s just my collection of gists, experiments, and production-quality snippets, bundled together as a Visual Studio solution.
 
 ---
 
-## 📦 Features (Implemented so far)
+## 🧬 What You’ll Find Here
 
-- Constructors (default and parameterized)
-- Arithmetic operators: `+`, `-`, `*`, `/`
-- Dot product and length calculations
-- Tolerance-based equality check via `Equals()`
-- Defensive zero handling in normalization
-- Perpendicular vector calculation
-- Comparison operators `==` and `!=`
-- Unit tests for all implemented features using **Catch2**
-- Doxygen documentation with consistent style
+- Reusable math: vectors, matrices, transforms
+- Catch2-powered unit tests for everything
+- Doxygen comments throughout
+- Modern C++ (C++20 required)
+- Clean file structure, no build hacks
+- **No executables** — this repo is lib-only by design
 
 ---
 
-## 🧭 Project Philosophy
+## 🚧 Warning
 
-GameMathLib aims to balance readability, mathematical correctness, and performance without sacrificing maintainability.  
-It's used to demonstrate modern C++ workflows, clean test-driven development, and AI-assisted tooling integration.
+There is no roadmap. No milestones. No release plan.
 
----
+I build whatever I want, when I want — and I try to write it well.
 
-## 🧰 Project Conventions
-
-- Written in **modern C++17**, organized as a header-based static library
-- File structure follows: one class or concept per source file
-- Unit tests use **Catch2** and are grouped using `#pragma region`
-- Assertion style: `CHECK()` preferred over `REQUIRE()` unless critical
-- Project conventions are standardized across:
-  - [Commit Guidelines](.github/commit-guidelines.md)
-  - [Doxygen Style](.github/doxygen-style.md)
-  - [Unit Test Guidelines](.github/unit-test-guidelines.md)
-  - [Label System](.github/label-guidelines.md)
-  - [Issue Template Guidelines](.github/issue-template-guidelines.md)
-- Issue tracking uses a [Markdown-based issue template](.github/ISSUE_TEMPLATE/new-issue.md) with structured fields and label-driven categorization
-- Internal coding style enforced via `.copilot/config.json`
+This is a **discovery environment** first, a **reference** second, and maybe someday a library or engine. Until then: it’s just clean, tested code — growing one idea at a time.
 
 ---
 
-## 🤖 AI & Tooling Disclosure
+## 🧠 Why I Made This
 
-This project uses GitHub Copilot and ChatGPT as drafting assistants for test generation, naming, and structural guidance.  
-All content is reviewed manually. See [AI Disclosure](#ai--tooling-disclosure).
+Because I got tired of:
+- Rewriting the same math functions
+- Digging through spaghetti from old projects
+- Losing nice little snippets in jam folders
+- Fighting frameworks when I just wanted a clean answer
+
+GameSystemsLab is my answer to that:  
+📚 A personal reference  
+🧪 A safe place to test ideas  
+🧠 A showcase of my style, clarity, and discipline
 
 ---
 
-## 📄 License
-
-This project is licensed under the [MIT License](LICENSE.md).
+Welcome to the lab.

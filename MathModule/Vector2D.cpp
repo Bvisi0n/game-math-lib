@@ -1,9 +1,9 @@
-#include "GameMath/Vector2D.hpp"
+#include "Vector2D.hpp"
 #include <algorithm>
 #include <cmath>
 #include <cassert>
 
-namespace GameMath {
+namespace GameSystems::Math {
     Vector2D::Vector2D(float x, float y)
         : x(x), y(y)
     {}

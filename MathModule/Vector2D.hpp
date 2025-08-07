@@ -1,6 +1,6 @@
 #pragma once
 
-namespace GameMath {
+namespace GameSystems::Math {
     /** @brief Represents a 2D mathematical vector with x and y components. */
     struct Vector2D {
         float x, y;
@@ -37,7 +37,7 @@ namespace GameMath {
             @return True if either component differs exactly. Use Equals() for tolerance. */
 		bool operator!=(const Vector2D& other) const;
 
-        /** @brief Clamps each component to its specified min/max range. 
+        /** @brief Clamps each component to its specified min/max range.
             Asserts in debug if min > max. No check in release.
             @param minX: Lower bound for x.
             @param maxX: Upper bound for x.
@@ -45,10 +45,10 @@ namespace GameMath {
             @param maxY: Upper bound for y. */
         void ClampComponents(float minX, float maxX, float minY, float maxY);
 
-        /** @brief Clamps vector length between min and max. 
+        /** @brief Clamps vector length between min and max.
             Asserts in debug if min > max. No check in release.
-            @param minLength: Lower bound for the vector’s length.
-            @param maxLength: Upper bound for the vector’s length. */
+            @param minLength: Lower bound for the vectorâ€™s length.
+            @param maxLength: Upper bound for the vectorâ€™s length. */
         void ClampLength(float minLength, float maxLength);
 
         /** @brief Returns the Euclidean distance to another vector.
@@ -72,7 +72,7 @@ namespace GameMath {
 		float Length() const;
 
         /** @brief Calculates the squared length of the vector.
-            @return The squared length of the vector (x² + y²). */
+            @return The squared length of the vector (xÂ² + yÂ²). */
 		float LengthSquared() const;
 
         /** @brief Normalizes this vector in-place to unit length.
@@ -83,7 +83,7 @@ namespace GameMath {
             @return A new Vector2D with unit length, or (0, 0) if the vector is zero. */
         Vector2D Normalized() const;
 
-        /** @brief Returns a 90° counter-clockwise rotated copy of this vector.
+        /** @brief Returns a 90Â° counter-clockwise rotated copy of this vector.
 			@return A new Vector2D perpendicular to this one. */
         Vector2D Perpendicular() const;
 
@@ -99,7 +99,7 @@ namespace GameMath {
 
         /** @brief Rounds both vector components to the nearest multiple of gridSize.
             Snaps the vector in place. If gridSize is zero, the vector remains unchanged.
-            Negative values are converted to positive internally. 
+            Negative values are converted to positive internally.
             @param gridSize: The grid spacing to snap to. Must be non-zero. */
         void SnapToGrid(float gridSize);
 

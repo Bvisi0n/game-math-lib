@@ -1,6 +1,6 @@
 #pragma once
 
-namespace GameMath {
+namespace GameSystems::Math {
 	/** @brief Represents a 3D transformation matrix in homogeneous coordinates. */
 	struct Matrix3D {
 		float matrix[4][4];

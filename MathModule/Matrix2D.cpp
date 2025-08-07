@@ -1,6 +1,6 @@
-#include "GameMath/Matrix2D.hpp"
+#include "Matrix2D.hpp"
 
-namespace GameMath {
+namespace GameSystems::Math {
     // Default to identity: this is the most common 2D transform initializer
     // and avoids unnecessary overwrites in >80% of real-world use cases.
 	Matrix2D::Matrix2D(bool identity)

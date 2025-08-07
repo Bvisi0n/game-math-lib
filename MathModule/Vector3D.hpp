@@ -1,6 +1,6 @@
 #pragma once
 
-namespace GameMath {
+namespace GameSystems::Math {
     /** @brief Represents a 3D mathematical vector with x, y and z components. */
     struct Vector3D {
         float x, y, z;

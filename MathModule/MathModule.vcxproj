@@ -21,9 +21,10 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{d2be6184-e367-4af4-9d26-fd3dedcde5d4}</ProjectGuid>
-    <RootNamespace>GameMathTests</RootNamespace>
+    <ProjectGuid>{d376bf90-4b82-4e80-a9ec-bc200ae8b815}</ProjectGuid>
+    <RootNamespace>MathModule</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>MathModule</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -40,7 +41,7 @@
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
@@ -102,7 +103,8 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)GameMathLib\include; $(ProjectDir)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)include</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -124,23 +126,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ProjectReference Include="..\GameMathLib\GameMathLib.vcxproj">
-      <Project>{d376bf90-4b82-4e80-a9ec-bc200ae8b815}</Project>
-    </ProjectReference>
+    <ClInclude Include="Matrix2D.hpp" />
+    <ClInclude Include="Matrix3D.hpp" />
+    <ClInclude Include="Vector2D.hpp" />
+    <ClInclude Include="Vector3D.hpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="catch_amalgamated.hpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="catch_amalgamated.cpp" />
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="tests\Matrix2DTests.cpp" />
-    <ClCompile Include="tests\Matrix3DTests.cpp" />
-    <ClCompile Include="tests\Vector2DTests.cpp" />
-    <ClCompile Include="tests\Vector3DTests.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="cpp.hint" />
+    <ClCompile Include="Matrix2D.cpp" />
+    <ClCompile Include="Matrix3D.cpp" />
+    <ClCompile Include="Vector2D.cpp" />
+    <ClCompile Include="Vector3D.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

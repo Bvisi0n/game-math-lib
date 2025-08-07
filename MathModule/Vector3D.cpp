@@ -1,7 +1,7 @@
-#include "GameMath/Vector3D.hpp"
+#include "Vector3D.hpp"
 #include <cmath>
 
-namespace GameMath {
+namespace GameSystems::Math {
     Vector3D::Vector3D(float x, float y, float z)
         : x(x), y(y), z(z)
     {

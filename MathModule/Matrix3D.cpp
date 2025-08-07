@@ -1,6 +1,6 @@
-#include "GameMath/Matrix3D.hpp"
+#include "Matrix3D.hpp"
 
-namespace GameMath {
+namespace GameSystems::Math {
     // Default to identity: this is the most common 3D transform initializer
     // and avoids unnecessary overwrites in >80% of real-world use cases.
     Matrix3D::Matrix3D(bool identity)
